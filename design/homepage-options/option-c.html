@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crafted Care Pediatrics — Homepage Option C: Full Conversion Build</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --sage:#9CAF88;--coral:#F0876C;--deep-sage:#506244;--deep-coral:#A8452F;
+    --cream:#F2EBDD;--sage-mist:#E6EBDF;--paper:#FDFBF7;--ink:#2B2F26;
+    --text-muted:#5C6155;--border-hairline:#D9CDBB;
+    --font-serif:'Literata',Georgia,serif;--font-sans:'Figtree',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);font-family:var(--font-sans);color:var(--ink);}
+  a{color:var(--deep-sage);text-decoration:none;}
+  a:hover{color:var(--deep-coral);}
+  .cc-card{background:var(--paper);border-radius:14px;box-shadow:0 4px 18px rgba(43,47,38,0.08);padding:22px;}
+  .cc-stitch{border-top:2px dashed var(--border-hairline);padding-top:14px;}
+  .cc-h2{font-family:var(--font-serif);font-weight:700;font-size:30px;color:var(--ink);margin:0;}
+  .cc-eyebrow{font-family:var(--font-sans);font-weight:600;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--deep-sage);}
+  .cc-body{font-family:var(--font-sans);font-size:15.5px;line-height:1.6;color:var(--text-muted);}
+  .cc-btn-coral{display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;border-radius:999px;background:var(--coral);color:var(--paper);font-family:var(--font-sans);font-weight:600;font-size:16px;}
+  .cc-faq-q{font-family:var(--font-serif);font-size:17px;color:var(--ink);margin-bottom:8px;}
+  .cc-benefits-grid{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:24px;}
+  @media (max-width: 900px){
+    .cc-row{flex-direction:column;}
+    .cc-benefits-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div style="width:100%;">
+
+  <!-- Header -->
+  <div style="display:flex; align-items:center; justify-content:space-between; padding:20px 56px; flex-wrap:wrap; gap:16px;">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <img src="assets/logo-mark.webp" alt="Crafted Care Pediatrics" style="height:38px; display:block;">
+      <span style="font-family:var(--font-serif); font-size:20px; color:var(--ink);">Crafted Care</span>
+    </div>
+    <div style="display:flex; gap:32px; font-size:15px; font-weight:600;">
+      <span style="color:var(--deep-sage);">Home</span>
+      <span style="color:var(--ink);">About</span>
+      <span style="color:var(--ink);">Services</span>
+      <span style="color:var(--ink);">Join</span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div style="background:var(--cream); padding:56px;">
+    <div class="cc-row" style="display:flex; gap:48px; align-items:center; max-width:1328px; margin:0 auto;">
+      <div style="max-width:560px; flex-shrink:0;">
+        <span style="display:inline-flex; padding:5px 14px; border-radius:999px; background:#FBE3DA; color:var(--deep-coral); font-weight:600; font-size:12.5px; letter-spacing:0.03em; margin-bottom:20px;">Opening December 2026</span>
+        <div style="font-family:var(--font-serif); font-weight:700; font-size:44px; line-height:1.15; color:var(--ink); margin-bottom:20px;">Crafting a lifetime of health, one chapter at a time.</div>
+        <div class="cc-body" style="font-size:17px; margin-bottom:28px;">Unhurried pediatric direct primary care in North Fort Worth, from newborn home visits to whole-child care as your family grows.</div>
+        <span class="cc-btn-coral">Join the Waitlist</span>
+      </div>
+      <div style="flex:1; background:var(--sage-mist); border-radius:14px; min-height:320px; display:flex; align-items:center; justify-content:center; padding:24px;">
+        <span style="font-size:13px; color:var(--text-muted); text-align:center;">real photograph, warm natural light, a real family (no stock photography)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Problem -->
+  <div style="max-width:760px; margin:0 auto; padding:64px 56px 8px; text-align:center;">
+    <div class="cc-eyebrow" style="margin-bottom:10px;">The problem</div>
+    <div class="cc-h2" style="margin-bottom:16px;">Most pediatric visits are over before you've finished your questions.</div>
+    <div class="cc-body" style="font-size:16.5px;">Seven minutes with the doctor, a full waiting room, and a chart that never quite feels like your child's whole story. If that sounds familiar, there's a different way to do primary care.</div>
+  </div>
+
+  <!-- Solution -->
+  <div style="max-width:760px; margin:0 auto; padding:40px 56px 8px; text-align:center;">
+    <div class="cc-eyebrow" style="margin-bottom:10px;">The practice</div>
+    <div class="cc-h2" style="margin-bottom:16px;">A pediatric practice built around time, not volume.</div>
+    <div class="cc-body" style="font-size:16.5px;">Crafted Care is a membership pediatric practice. Instead of billing insurance for every visit, families pay a simple monthly or annual membership for direct access to Krystyna Wesp, longer appointments, and a relationship that grows with your child from their first weeks through their teenage years.</div>
+  </div>
+
+  <!-- Benefits grid -->
+  <div style="max-width:1328px; margin:0 auto; padding:56px 56px 64px;">
+    <div class="cc-h2" style="text-align:center; margin-bottom:40px; font-size:28px;">Why families choose Crafted Care</div>
+    <div class="cc-benefits-grid">
+      <div class="cc-card"><div class="cc-stitch">
+        <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;">Whole-child care</div>
+        <div class="cc-body">From birth through the teenage years, one pediatrician who knows your family.</div>
+      </div></div>
+      <div class="cc-card"><div class="cc-stitch">
+        <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;">Unhurried visits</div>
+        <div class="cc-body">Longer appointments built for real questions, not the next patient in line.</div>
+      </div></div>
+      <div class="cc-card"><div class="cc-stitch">
+        <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;">Direct access</div>
+        <div class="cc-body">Reach Krystyna directly when a question comes up, not a call center.</div>
+      </div></div>
+      <div class="cc-card"><div class="cc-stitch">
+        <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;">OMM</div>
+        <div class="cc-body">Osteopathic manipulative medicine, offered at every well visit.</div>
+      </div></div>
+      <div class="cc-card"><div class="cc-stitch">
+        <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;">Home visits</div>
+        <div class="cc-body">Birth to 2 months, at your house, not ours.</div>
+      </div></div>
+      <div class="cc-card"><div class="cc-stitch">
+        <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;">Behavioral health</div>
+        <div class="cc-body">Support for the whole child, not just the physical checkups.</div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <div style="background:var(--sage-mist); padding:64px 56px;">
+    <div style="max-width:1328px; margin:0 auto;">
+      <div class="cc-h2" style="text-align:center; margin-bottom:40px;">How it works</div>
+      <div style="display:flex; gap:40px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:220px;">
+          <div style="font-family:var(--font-serif); font-size:30px; color:var(--sage); margin-bottom:8px;">01</div>
+          <div style="font-family:var(--font-serif); font-size:18px; color:var(--ink); margin-bottom:8px;">Join the waitlist</div>
+          <div class="cc-body">Tell us about your family so we can reach out as we get closer to opening.</div>
+        </div>
+        <div style="flex:1; min-width:220px;">
+          <div style="font-family:var(--font-serif); font-size:30px; color:var(--sage); margin-bottom:8px;">02</div>
+          <div style="font-family:var(--font-serif); font-size:18px; color:var(--ink); margin-bottom:8px;">Meet Krystyna</div>
+          <div class="cc-body">Once we open, schedule a meet and greet to see if Crafted Care is the right fit.</div>
+        </div>
+        <div style="flex:1; min-width:220px;">
+          <div style="font-family:var(--font-serif); font-size:30px; color:var(--sage); margin-bottom:8px;">03</div>
+          <div style="font-family:var(--font-serif); font-size:18px; color:var(--ink); margin-bottom:8px;">Start whole-child care</div>
+          <div class="cc-body">Choose your membership and start unhurried, direct access pediatric care.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing -->
+  <div style="max-width:1328px; margin:0 auto; padding:64px 56px;">
+    <div class="cc-row" style="display:flex; gap:48px; align-items:center; flex-wrap:wrap;">
+      <div style="flex:1; min-width:280px;">
+        <div class="cc-eyebrow" style="margin-bottom:10px;">Membership</div>
+        <div class="cc-h2" style="margin-bottom:16px;">Simple membership, priced by age.</div>
+        <div class="cc-body" style="font-size:16.5px;">Monthly and annual plans, priced by your child's age, so families with more than one kid aren't paying one flat rate. Exact pricing is shared with waitlist families well before you have to decide anything, and there are no surprise per-visit bills once you're a member.</div>
+      </div>
+      <div class="cc-card" style="flex:1; min-width:280px; max-width:400px;">
+        <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:14px;">What's included</div>
+        <div class="cc-body" style="display:flex; flex-direction:column; gap:10px;">
+          <span>Unhurried, direct access primary care</span>
+          <span>OMM at every well visit</span>
+          <span>Behavioral and whole-child support</span>
+          <span>Home visits, birth to 2 months</span>
+          <span>Age-banded monthly or annual billing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About -->
+  <div style="background:var(--cream); padding:64px 56px;">
+    <div class="cc-row" style="max-width:1328px; margin:0 auto; display:flex; gap:48px; align-items:center; flex-wrap:wrap;">
+      <div style="flex:1; min-width:260px; background:var(--paper); border-radius:14px; min-height:260px; display:flex; align-items:center; justify-content:center; padding:24px;">
+        <span style="font-size:13px; color:var(--text-muted); text-align:center;">real photograph, Krystyna Wesp</span>
+      </div>
+      <div style="flex:1; min-width:320px;">
+        <div class="cc-eyebrow" style="margin-bottom:10px;">About</div>
+        <div class="cc-h2" style="font-size:26px; margin-bottom:16px;">A mother and a pediatrician, building the practice she wished she had.</div>
+        <div class="cc-body" style="margin-bottom:12px; font-size:16px;">Krystyna Wesp is a mother first. She built Crafted Care for more time with every family: to answer every question, know your child's story, and be a real partner as your family grows.</div>
+        <div class="cc-body" style="font-size:16px;">She reads to patients in clinic and hand-crochets a hat for every newborn she welcomes, because care should feel personal, not procedural.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div style="max-width:840px; margin:0 auto; padding:72px 56px;">
+    <div class="cc-h2" style="text-align:center; margin-bottom:40px;">Questions families ask</div>
+    <div style="display:flex; flex-direction:column;">
+      <div class="cc-stitch" style="padding-bottom:20px; margin-bottom:20px;">
+        <div class="cc-faq-q">Do you accept insurance?</div>
+        <div class="cc-body">Crafted Care doesn't bill insurance for visits. Your membership covers your child's primary care directly, and many families still use insurance for labs, imaging, specialists, and prescriptions.</div>
+      </div>
+      <div class="cc-stitch" style="padding-bottom:20px; margin-bottom:20px;">
+        <div class="cc-faq-q">What ages do you see?</div>
+        <div class="cc-body">Birth through age 21, including behavioral health and whole-child care as kids grow into teenagers.</div>
+      </div>
+      <div class="cc-stitch" style="padding-bottom:20px; margin-bottom:20px;">
+        <div class="cc-faq-q">How much does membership cost?</div>
+        <div class="cc-body">Membership is priced by age, with monthly and annual options. We'll share exact pricing with waitlist families as we get closer to opening.</div>
+      </div>
+      <div class="cc-stitch" style="padding-bottom:20px; margin-bottom:20px;">
+        <div class="cc-faq-q">What if we already have a pediatrician?</div>
+        <div class="cc-body">You're welcome to join the waitlist and make the switch whenever it feels right. Most families start with a meet and greet before deciding.</div>
+      </div>
+      <div class="cc-stitch" style="padding-bottom:20px; margin-bottom:20px;">
+        <div class="cc-faq-q">Do you offer newborn home visits?</div>
+        <div class="cc-body">Yes. For babies birth to 2 months, Krystyna comes to you instead of asking a new family to pack up for the office.</div>
+      </div>
+      <div class="cc-stitch" style="padding-bottom:20px; margin-bottom:20px;">
+        <div class="cc-faq-q">What is OMM, and is it included?</div>
+        <div class="cc-body">Osteopathic manipulative medicine is a gentle, hands-on approach offered at every well visit at no extra cost.</div>
+      </div>
+      <div class="cc-stitch">
+        <div class="cc-faq-q">How do I get started?</div>
+        <div class="cc-body">Join the waitlist today. Once Crafted Care opens in December, you'll be invited to schedule a meet and greet.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Final CTA -->
+  <div style="background:var(--cream); padding:64px 56px;">
+    <div class="cc-row" style="max-width:1328px; margin:0 auto; display:flex; gap:48px; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+      <div style="max-width:480px;">
+        <div class="cc-h2" style="margin-bottom:12px;">Your child's first chapter starts here.</div>
+        <div class="cc-body" style="font-size:17px;">Crafted Care opens in December 2026. Join the waitlist today to be among the first families welcomed.</div>
+      </div>
+      <div class="cc-card" style="max-width:380px; width:100%;">
+        <div style="font-family:var(--font-serif); font-size:22px; color:var(--ink); margin-bottom:16px;">Join the waitlist</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <input placeholder="Parent name" style="padding:12px 14px; border-radius:8px; border:1px solid var(--border-hairline); font-size:15px; color:var(--ink); font-family:var(--font-sans);">
+          <input placeholder="Email address" style="padding:12px 14px; border-radius:8px; border:1px solid var(--border-hairline); font-size:15px; color:var(--ink); font-family:var(--font-sans);">
+          <input placeholder="Child's age (or due date)" style="padding:12px 14px; border-radius:8px; border:1px solid var(--border-hairline); font-size:15px; color:var(--ink); font-family:var(--font-sans);">
+          <button class="cc-btn-coral" style="margin-top:4px; border:none; cursor:pointer;">Join the Waitlist</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; padding:40px 56px; border-top:1px solid var(--border-hairline); font-size:13px; color:var(--text-muted);">
+    <span>Crafted Care Pediatrics, North Fort Worth, TX</span>
+    <span>kwesp@craftedcarepeds.com</span>
+  </div>
+
+</div>
+</body>
+</html>

@@ -11,18 +11,59 @@
     --cream:#F2EBDD;--sage-mist:#E6EBDF;--paper:#FDFBF7;--ink:#2B2F26;
     --text-muted:#5C6155;--border-hairline:#D9CDBB;
     --font-serif:'Literata',Georgia,serif;--font-sans:'Figtree',system-ui,sans-serif;
+    --ease:cubic-bezier(.16,1,.3,1);
   }
   *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
   body{margin:0;background:var(--paper);font-family:var(--font-sans);color:var(--ink);}
-  a{color:var(--deep-sage);text-decoration:none;}
+  a{color:var(--deep-sage);text-decoration:none;transition:color .2s ease;}
   a:hover{color:var(--deep-coral);}
-  .cc-card{background:var(--paper);border-radius:14px;box-shadow:0 4px 18px rgba(43,47,38,0.08);padding:24px;position:relative;overflow:hidden;}
+
+  .site-header{position:sticky;top:0;z-index:50;background:rgba(253,251,247,0.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:box-shadow .3s ease;}
+  .site-header.is-scrolled{box-shadow:0 2px 16px rgba(43,47,38,0.08);}
+  .nav-link{position:relative;padding-bottom:2px;}
+  .nav-link::after{content:'';position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--deep-coral);transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease);}
+  .nav-link:hover::after,.nav-link.active::after{transform:scaleX(1);}
+  .nav-link.active{color:var(--deep-sage);}
+  .logo-mark{transition:transform .3s var(--ease);}
+  .logo-lockup:hover .logo-mark{transform:rotate(-4deg) scale(1.05);}
+
+  .cc-card{background:var(--paper);border-radius:14px;box-shadow:0 4px 18px rgba(43,47,38,0.08);padding:24px;position:relative;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
+  .cc-card:hover{transform:translateY(-5px);box-shadow:0 16px 32px rgba(43,47,38,0.14);}
   .cc-chain{position:absolute;top:0;left:0;right:0;height:6px;background-image:repeating-radial-gradient(circle at 5px 3px, transparent 0 2px, var(--border-hairline) 2.4px 3px, transparent 3.4px 10px);background-repeat:repeat-x;}
   .cc-h2{font-family:var(--font-serif);font-weight:700;font-size:32px;color:var(--ink);margin:0;}
   .cc-eyebrow{font-family:var(--font-sans);font-weight:600;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--deep-sage);}
   .cc-body{font-family:var(--font-sans);font-size:16px;line-height:1.6;color:var(--text-muted);}
-  .cc-btn-coral{display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;border-radius:999px;background:var(--coral);color:var(--paper);font-family:var(--font-sans);font-weight:600;font-size:16px;}
-  .cc-divider-chain{height:6px;background-image:repeating-radial-gradient(circle at 5px 3px, transparent 0 2px, var(--sage) 2.4px 3px, transparent 3.4px 10px);background-repeat:repeat-x;background-position:center;}
+
+  .cc-btn-coral{display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;border-radius:999px;background:var(--coral);color:var(--paper);font-family:var(--font-sans);font-weight:600;font-size:16px;border:none;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease);}
+  .cc-btn-coral:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(240,135,108,0.4);}
+  .cc-btn-coral:active{transform:translateY(-1px);}
+
+  .cc-photo{position:relative;overflow:hidden;transition:transform .5s var(--ease);}
+  .cc-photo:hover{transform:scale(1.015);}
+
+  /* the dotted "chain stitch" divider draws in like a seam being sewn */
+  .cc-divider-chain{height:6px;background-image:repeating-radial-gradient(circle at 5px 3px, transparent 0 2px, var(--sage) 2.4px 3px, transparent 3.4px 10px);background-repeat:repeat-x;background-position:center;transform:scaleX(0);transform-origin:left center;transition:transform .9s var(--ease);}
+  .cc-divider-chain.is-visible{transform:scaleX(1);}
+
+  /* scroll reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0ms);}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+
+  /* hero load-in */
+  .hero-in>*{opacity:0;transform:translateY(18px);animation:heroIn .8s var(--ease) forwards;}
+  .hero-in>*:nth-child(1){animation-delay:.05s;}
+  .hero-in>*:nth-child(2){animation-delay:.18s;}
+  .hero-in>*:nth-child(3){animation-delay:.31s;}
+  .hero-in>*:nth-child(4){animation-delay:.44s;}
+  @keyframes heroIn{to{opacity:1;transform:translateY(0);}}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;}
+    .reveal{opacity:1;transform:none;}
+    .cc-divider-chain{transform:scaleX(1);}
+    html{scroll-behavior:auto;}
+  }
   @media (max-width: 900px){
     .cc-row{flex-direction:column;}
     .cc-chapter{flex-direction:column;}
@@ -35,33 +76,33 @@
 <div style="width:100%;">
 
   <!-- Header -->
-  <div style="display:flex; align-items:center; justify-content:space-between; padding:20px 56px; flex-wrap:wrap; gap:16px;">
-    <div style="display:flex; align-items:center; gap:12px;">
-      <img src="assets/logo-mark.webp" alt="Crafted Care Pediatrics" style="height:38px; display:block;">
+  <div class="site-header" data-header style="display:flex; align-items:center; justify-content:space-between; padding:20px 56px; flex-wrap:wrap; gap:16px;">
+    <a href="#" class="logo-lockup" style="display:flex; align-items:center; gap:12px;">
+      <img class="logo-mark" src="assets/logo-mark.webp" alt="Crafted Care Pediatrics" style="height:38px; display:block;">
       <span style="font-family:var(--font-serif); font-size:20px; color:var(--ink);">Crafted Care</span>
-    </div>
+    </a>
     <div style="display:flex; gap:32px; font-size:15px; font-weight:600;">
-      <span style="color:var(--deep-sage);">Home</span>
-      <span style="color:var(--ink);">About</span>
-      <span style="color:var(--ink);">Services</span>
-      <span style="color:var(--ink);">Join</span>
+      <span class="nav-link active">Home</span>
+      <span class="nav-link" style="color:var(--ink);">About</span>
+      <span class="nav-link" style="color:var(--ink);">Services</span>
+      <a href="#waitlist" class="nav-link" style="color:var(--ink);">Join</a>
     </div>
   </div>
 
   <!-- Hero (tighter) -->
   <div style="background:var(--cream); padding:48px 56px;">
-    <div style="max-width:720px; margin:0 auto; text-align:center;">
+    <div class="hero-in" style="max-width:720px; margin:0 auto; text-align:center;">
       <span style="display:inline-flex; padding:5px 14px; border-radius:999px; background:#FBE3DA; color:var(--deep-coral); font-weight:600; font-size:12.5px; letter-spacing:0.03em; margin-bottom:20px;">Opening December 2026</span>
       <div style="font-family:var(--font-serif); font-weight:700; font-size:42px; line-height:1.15; color:var(--ink); margin-bottom:16px;">Crafting a lifetime of health, one chapter at a time.</div>
       <div class="cc-body" style="font-size:17px; margin-bottom:28px;">Unhurried pediatric direct primary care in North Fort Worth, built around one family's founding story.</div>
-      <span class="cc-btn-coral">Join the Waitlist</span>
+      <a href="#waitlist" class="cc-btn-coral">Join the Waitlist</a>
     </div>
   </div>
 
   <!-- Founder spotlight, pulled up front -->
-  <div style="max-width:1328px; margin:0 auto; padding:72px 56px;">
+  <div class="reveal" style="max-width:1328px; margin:0 auto; padding:72px 56px;">
     <div class="cc-row" style="display:flex; gap:56px; align-items:center; flex-wrap:wrap;">
-      <div style="flex:1; min-width:320px; background:var(--sage-mist); border-radius:14px; min-height:420px; display:flex; align-items:center; justify-content:center; padding:24px;">
+      <div class="cc-photo" style="flex:1; min-width:320px; background:var(--sage-mist); border-radius:14px; min-height:420px; display:flex; align-items:center; justify-content:center; padding:24px;">
         <span style="font-size:13px; color:var(--text-muted); text-align:center;">real photograph, warm natural light, Krystyna Wesp with a family</span>
       </div>
       <div style="flex:1; min-width:340px;">
@@ -76,7 +117,7 @@
 
   <!-- Problem / Solution combined -->
   <div style="background:var(--sage-mist); padding:64px 56px;">
-    <div class="cc-row" style="max-width:960px; margin:0 auto; display:flex; gap:48px; flex-wrap:wrap;">
+    <div class="cc-row reveal" style="max-width:960px; margin:0 auto; display:flex; gap:48px; flex-wrap:wrap;">
       <div style="flex:1; min-width:280px;">
         <div class="cc-eyebrow" style="margin-bottom:10px;">The problem</div>
         <div class="cc-h2" style="font-size:24px; margin-bottom:12px;">Seven minutes, and the next patient is already waiting.</div>
@@ -92,30 +133,30 @@
 
   <!-- Benefits, chain-stitch cards -->
   <div style="max-width:1328px; margin:0 auto; padding:72px 56px;">
-    <div class="cc-h2" style="text-align:center; margin-bottom:40px;">What your family gets</div>
+    <div class="cc-h2 reveal" style="text-align:center; margin-bottom:40px;">What your family gets</div>
     <div style="display:flex; gap:24px; flex-wrap:wrap;">
-      <div class="cc-card" style="flex:1; min-width:260px;">
+      <div class="cc-card reveal" style="--d:0ms; flex:1; min-width:260px;">
         <div class="cc-chain"></div>
         <div style="padding-top:12px;">
           <div style="font-family:var(--font-serif); font-size:20px; color:var(--ink); margin-bottom:10px;">Whole-child care</div>
           <div class="cc-body">From birth through the teenage years, one pediatrician who knows your family.</div>
         </div>
       </div>
-      <div class="cc-card" style="flex:1; min-width:260px;">
+      <div class="cc-card reveal" style="--d:90ms; flex:1; min-width:260px;">
         <div class="cc-chain"></div>
         <div style="padding-top:12px;">
           <div style="font-family:var(--font-serif); font-size:20px; color:var(--ink); margin-bottom:10px;">Unhurried visits</div>
           <div class="cc-body">Longer appointments built for real questions, not the next patient in line.</div>
         </div>
       </div>
-      <div class="cc-card" style="flex:1; min-width:260px;">
+      <div class="cc-card reveal" style="--d:180ms; flex:1; min-width:260px;">
         <div class="cc-chain"></div>
         <div style="padding-top:12px;">
           <div style="font-family:var(--font-serif); font-size:20px; color:var(--ink); margin-bottom:10px;">OMM</div>
           <div class="cc-body">Osteopathic manipulative medicine, offered at every well visit.</div>
         </div>
       </div>
-      <div class="cc-card" style="flex:1; min-width:260px;">
+      <div class="cc-card reveal" style="--d:270ms; flex:1; min-width:260px;">
         <div class="cc-chain"></div>
         <div style="padding-top:12px;">
           <div style="font-family:var(--font-serif); font-size:20px; color:var(--ink); margin-bottom:10px;">Home visits</div>
@@ -127,28 +168,28 @@
 
   <!-- How it works, framed as chapters -->
   <div style="max-width:900px; margin:0 auto; padding:16px 56px 80px;">
-    <div class="cc-eyebrow" style="text-align:center; margin-bottom:10px;">How it works</div>
-    <div class="cc-h2" style="text-align:center; margin-bottom:40px;">Three chapters, from waitlist to whole-child care.</div>
+    <div class="cc-eyebrow reveal" style="text-align:center; margin-bottom:10px;">How it works</div>
+    <div class="cc-h2 reveal" style="text-align:center; margin-bottom:40px;">Three chapters, from waitlist to whole-child care.</div>
 
-    <div class="cc-chapter" style="display:flex; gap:24px; align-items:baseline;">
+    <div class="cc-chapter reveal" style="display:flex; gap:24px; align-items:baseline;">
       <div class="cc-chapter-label" style="font-family:var(--font-serif); font-style:italic; font-size:15px; color:var(--sage); width:120px; flex-shrink:0;">Chapter One</div>
       <div>
         <div style="font-family:var(--font-serif); font-size:20px; color:var(--ink); margin-bottom:6px;">Join the waitlist</div>
         <div class="cc-body">Tell us about your family so we can reach out as we get closer to opening.</div>
       </div>
     </div>
-    <div class="cc-divider-chain" style="margin:28px 0;"></div>
+    <div class="cc-divider-chain reveal" style="margin:28px 0;"></div>
 
-    <div class="cc-chapter" style="display:flex; gap:24px; align-items:baseline;">
+    <div class="cc-chapter reveal" style="display:flex; gap:24px; align-items:baseline;">
       <div class="cc-chapter-label" style="font-family:var(--font-serif); font-style:italic; font-size:15px; color:var(--sage); width:120px; flex-shrink:0;">Chapter Two</div>
       <div>
         <div style="font-family:var(--font-serif); font-size:20px; color:var(--ink); margin-bottom:6px;">Meet Krystyna</div>
         <div class="cc-body">Once we open, schedule a meet and greet to see if Crafted Care is the right fit.</div>
       </div>
     </div>
-    <div class="cc-divider-chain" style="margin:28px 0;"></div>
+    <div class="cc-divider-chain reveal" style="margin:28px 0;"></div>
 
-    <div class="cc-chapter" style="display:flex; gap:24px; align-items:baseline;">
+    <div class="cc-chapter reveal" style="display:flex; gap:24px; align-items:baseline;">
       <div class="cc-chapter-label" style="font-family:var(--font-serif); font-style:italic; font-size:15px; color:var(--sage); width:120px; flex-shrink:0;">Chapter Three</div>
       <div>
         <div style="font-family:var(--font-serif); font-size:20px; color:var(--ink); margin-bottom:6px;">Start whole-child care</div>
@@ -159,15 +200,15 @@
 
   <!-- Pricing signal -->
   <div style="background:var(--cream); padding:56px;">
-    <div style="max-width:760px; margin:0 auto; text-align:center;">
+    <div class="reveal" style="max-width:760px; margin:0 auto; text-align:center;">
       <div class="cc-h2" style="font-size:26px; margin-bottom:14px;">Simple membership, priced by age.</div>
       <div class="cc-body">Monthly and annual plans, priced by your child's age. We'll share exact pricing with waitlist families well before you have to decide anything.</div>
     </div>
   </div>
 
   <!-- Final CTA -->
-  <div style="padding:64px 56px;">
-    <div class="cc-row" style="max-width:1328px; margin:0 auto; display:flex; gap:48px; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+  <div id="waitlist" style="padding:64px 56px; scroll-margin-top:88px;">
+    <div class="cc-row reveal" style="max-width:1328px; margin:0 auto; display:flex; gap:48px; align-items:center; justify-content:space-between; flex-wrap:wrap;">
       <div style="max-width:480px;">
         <div class="cc-h2" style="margin-bottom:12px;">Your child's first chapter starts here.</div>
         <div class="cc-body" style="font-size:17px;">Crafted Care opens in December 2026. Join the waitlist today to be among the first families welcomed.</div>
@@ -175,10 +216,10 @@
       <div class="cc-card" style="max-width:380px; width:100%;">
         <div style="font-family:var(--font-serif); font-size:22px; color:var(--ink); margin-bottom:16px;">Join the waitlist</div>
         <div style="display:flex; flex-direction:column; gap:12px;">
-          <input placeholder="Parent name" style="padding:12px 14px; border-radius:8px; border:1px solid var(--border-hairline); font-size:15px; color:var(--ink); font-family:var(--font-sans);">
-          <input placeholder="Email address" style="padding:12px 14px; border-radius:8px; border:1px solid var(--border-hairline); font-size:15px; color:var(--ink); font-family:var(--font-sans);">
-          <input placeholder="Child's age (or due date)" style="padding:12px 14px; border-radius:8px; border:1px solid var(--border-hairline); font-size:15px; color:var(--ink); font-family:var(--font-sans);">
-          <button class="cc-btn-coral" style="margin-top:4px; border:none; cursor:pointer;">Join the Waitlist</button>
+          <input placeholder="Parent name" style="padding:12px 14px; border-radius:8px; border:1px solid var(--border-hairline); font-size:15px; color:var(--ink); font-family:var(--font-sans); transition:border-color .2s ease, box-shadow .2s ease;" onfocus="this.style.borderColor='var(--deep-sage)'; this.style.boxShadow='0 0 0 3px rgba(80,98,68,0.12)';" onblur="this.style.borderColor='var(--border-hairline)'; this.style.boxShadow='none';">
+          <input placeholder="Email address" style="padding:12px 14px; border-radius:8px; border:1px solid var(--border-hairline); font-size:15px; color:var(--ink); font-family:var(--font-sans); transition:border-color .2s ease, box-shadow .2s ease;" onfocus="this.style.borderColor='var(--deep-sage)'; this.style.boxShadow='0 0 0 3px rgba(80,98,68,0.12)';" onblur="this.style.borderColor='var(--border-hairline)'; this.style.boxShadow='none';">
+          <input placeholder="Child's age (or due date)" style="padding:12px 14px; border-radius:8px; border:1px solid var(--border-hairline); font-size:15px; color:var(--ink); font-family:var(--font-sans); transition:border-color .2s ease, box-shadow .2s ease;" onfocus="this.style.borderColor='var(--deep-sage)'; this.style.boxShadow='0 0 0 3px rgba(80,98,68,0.12)';" onblur="this.style.borderColor='var(--border-hairline)'; this.style.boxShadow='none';">
+          <button class="cc-btn-coral" style="margin-top:4px;">Join the Waitlist</button>
         </div>
       </div>
     </div>
@@ -191,5 +232,34 @@
   </div>
 
 </div>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function(el){ el.classList.add('is-visible'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  }
+
+  var header = document.querySelector('[data-header]');
+  if (header) {
+    var onScroll = function(){
+      if (window.scrollY > 8) header.classList.add('is-scrolled');
+      else header.classList.remove('is-scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+})();
+</script>
 </body>
 </html>

@@ -31,11 +31,13 @@
   .cc-card{background:var(--paper);border:1px solid var(--border-hairline);border-radius:14px;position:relative;overflow:hidden;box-shadow:7px 8px 0 0 var(--sage-mist),14px 16px 0 0 var(--border-hairline),0 4px 18px rgba(43,47,38,0.10);padding:22px;transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
   .cc-card:hover{transform:translateY(-5px);box-shadow:7px 8px 0 0 var(--sage-mist),14px 16px 0 0 var(--border-hairline),0 16px 32px rgba(43,47,38,0.16);}
   .cc-card::after{content:'';position:absolute;top:0;right:0;width:0;height:0;border-style:solid;border-width:0 24px 24px 0;border-color:transparent var(--sage-mist) transparent transparent;}
+  .cc-card .cc-bookmark{position:absolute;top:0;left:26px;width:20px;height:36px;background:var(--coral);clip-path:polygon(0 0,100% 0,100% 78%,50% 100%,0 78%);transform:translateY(-100%);transition:transform .4s var(--ease);z-index:2;box-shadow:0 3px 6px rgba(43,47,38,0.18);}
+  .cc-card:hover .cc-bookmark{transform:translateY(0);}
   .cc-stitch{border-top:2px dashed var(--border-hairline);padding-top:14px;}
   .cc-h2{font-family:var(--font-serif);font-weight:700;font-size:30px;color:var(--ink);margin:0;}
   .cc-eyebrow{font-family:var(--font-sans);font-weight:600;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--deep-sage);}
   .cc-body{font-family:var(--font-sans);font-size:15.5px;line-height:1.6;color:var(--text-muted);}
-  .bookmark-tag{display:inline-flex;align-items:flex-start;justify-content:center;padding:6px 16px 12px;background:var(--sage);color:var(--paper);font-family:var(--font-sans);font-weight:600;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;clip-path:polygon(0 0,100% 0,100% 100%,50% 76%,0 100%);margin-bottom:14px;}
+  .bookmark-tag{display:inline-flex;align-items:center;justify-content:center;padding:9px 22px;background:linear-gradient(to right,var(--sage) calc(50% - 1px),rgba(43,47,38,0.24) calc(50% - 1px),rgba(43,47,38,0.24) calc(50% + 1px),var(--sage) calc(50% + 1px));color:var(--paper);font-family:var(--font-sans);font-weight:600;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;clip-path:polygon(8% 0%,92% 0%,100% 24%,100% 76%,92% 100%,8% 100%,0% 76%,0% 24%);margin-bottom:14px;}
 
   .cc-btn-coral{display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;border-radius:999px;background:var(--coral);color:var(--paper);font-family:var(--font-sans);font-weight:600;font-size:16px;border:none;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease);}
   .cc-btn-coral:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(240,135,108,0.4);}
@@ -140,27 +142,27 @@
       <div class="cc-h2" style="font-size:28px;">Why families choose Crafted Care</div>
     </div>
     <div class="cc-benefits-grid">
-      <div class="cc-card reveal" style="--d:0ms;"><div class="cc-stitch">
+      <div class="cc-card reveal" style="--d:0ms;"><div class="cc-bookmark"></div><div class="cc-stitch">
         <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;">Whole-child care</div>
         <div class="cc-body">From birth through the teenage years, one pediatrician who knows your family.</div>
       </div></div>
-      <div class="cc-card reveal" style="--d:60ms;"><div class="cc-stitch">
+      <div class="cc-card reveal" style="--d:60ms;"><div class="cc-bookmark"></div><div class="cc-stitch">
         <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;">Unhurried visits</div>
         <div class="cc-body">Longer appointments built for real questions, not the next patient in line.</div>
       </div></div>
-      <div class="cc-card reveal" style="--d:120ms;"><div class="cc-stitch">
+      <div class="cc-card reveal" style="--d:120ms;"><div class="cc-bookmark"></div><div class="cc-stitch">
         <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;">Direct access</div>
         <div class="cc-body">Reach Krystyna directly when a question comes up, not a call center.</div>
       </div></div>
-      <div class="cc-card reveal" style="--d:180ms;"><div class="cc-stitch">
+      <div class="cc-card reveal" style="--d:180ms;"><div class="cc-bookmark"></div><div class="cc-stitch">
         <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;">OMM</div>
         <div class="cc-body">Osteopathic manipulative medicine, offered at every well visit.</div>
       </div></div>
-      <div class="cc-card reveal" style="--d:240ms;"><div class="cc-stitch">
+      <div class="cc-card reveal" style="--d:240ms;"><div class="cc-bookmark"></div><div class="cc-stitch">
         <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;">Home visits</div>
         <div class="cc-body">Birth to 2 months, at your house, not ours.</div>
       </div></div>
-      <div class="cc-card reveal" style="--d:300ms;"><div class="cc-stitch">
+      <div class="cc-card reveal" style="--d:300ms;"><div class="cc-bookmark"></div><div class="cc-stitch">
         <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;">Behavioral health</div>
         <div class="cc-body">Support for the whole child, not just the physical checkups.</div>
       </div></div>
@@ -203,7 +205,7 @@
         <div class="cc-h2" style="margin-bottom:16px;">Simple membership, priced by age.</div>
         <div class="cc-body" style="font-size:16.5px;">Monthly and annual plans, priced by your child's age, so families with more than one kid aren't paying one flat rate. Exact pricing is shared with waitlist families well before you have to decide anything, and there are no surprise per-visit bills once you're a member.</div>
       </div>
-      <div class="cc-card" style="flex:1; min-width:280px; max-width:400px;">
+      <div class="cc-card" style="flex:1; min-width:280px; max-width:400px;"><div class="cc-bookmark"></div>
         <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:14px;">What's included</div>
         <div class="cc-body" style="display:flex; flex-direction:column; gap:10px;">
           <span>Unhurried, direct access primary care</span>
@@ -317,7 +319,7 @@
         <div class="cc-h2" style="margin-bottom:12px;">Your child's first chapter starts here.</div>
         <div class="cc-body" style="font-size:17px;">Crafted Care opens in December 2026. Join the waitlist today to be among the first families welcomed.</div>
       </div>
-      <div class="cc-card" style="max-width:380px; width:100%;">
+      <div class="cc-card" style="max-width:380px; width:100%;"><div class="cc-bookmark"></div>
         <div style="font-family:var(--font-serif); font-size:22px; color:var(--ink); margin-bottom:16px;">Join the waitlist</div>
         <div style="display:flex; flex-direction:column; gap:12px;">
           <input placeholder="Parent name" style="padding:12px 14px; border-radius:8px; border:1px solid var(--border-hairline); font-size:15px; color:var(--ink); font-family:var(--font-sans); transition:border-color .2s ease, box-shadow .2s ease;" onfocus="this.style.borderColor='var(--deep-sage)'; this.style.boxShadow='0 0 0 3px rgba(80,98,68,0.12)';" onblur="this.style.borderColor='var(--border-hairline)'; this.style.boxShadow='none';">

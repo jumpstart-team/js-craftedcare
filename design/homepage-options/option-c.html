@@ -37,8 +37,10 @@
   .cc-h2{font-family:var(--font-serif);font-weight:700;font-size:30px;color:var(--ink);margin:0;}
   .cc-eyebrow{font-family:var(--font-sans);font-weight:600;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--deep-sage);}
   .cc-body{font-family:var(--font-sans);font-size:15.5px;line-height:1.6;color:var(--text-muted);}
-  .bookmark-tag{position:relative;display:inline-flex;align-items:center;justify-content:center;width:172px;height:86px;background:linear-gradient(to right,var(--paper) 0%,var(--cream) 34%,#E4D6BA 46%,#C7B48C 50%,#E4D6BA 54%,var(--cream) 66%,var(--paper) 100%);border:1px solid var(--border-hairline);color:var(--ink);font-family:var(--font-sans);font-weight:700;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;clip-path:polygon(8% 0%,92% 0%,100% 24%,100% 76%,92% 100%,8% 100%,0% 76%,0% 24%);margin-bottom:14px;box-shadow:0 6px 16px rgba(43,47,38,0.14),inset 0 10px 14px -12px rgba(43,47,38,0.28),inset 0 -10px 14px -12px rgba(43,47,38,0.28);}
-  .bookmark-tag::after{content:'';position:absolute;top:6%;bottom:6%;left:50%;width:1.5px;background:rgba(43,47,38,0.3);transform:translateX(-50%);}
+  .bookmark-tag{display:inline-flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:14px;}
+  .book-icon{width:108px;height:54px;overflow:visible;}
+  .book-icon path{fill:none;stroke:var(--deep-sage);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+  .bookmark-tag span{font-family:var(--font-sans);font-weight:600;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--deep-sage);}
 
   .cc-btn-coral{display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;border-radius:999px;background:var(--coral);color:var(--paper);font-family:var(--font-sans);font-weight:600;font-size:16px;border:none;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease);}
   .cc-btn-coral:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(240,135,108,0.4);}
@@ -122,7 +124,7 @@
 
   <!-- Problem -->
   <div class="reveal" style="max-width:760px; margin:0 auto; padding:64px 56px 8px; text-align:center;">
-    <div class="bookmark-tag"><span>Chapter One</span></div>
+    <div class="bookmark-tag"><svg class="book-icon" viewBox="0 0 200 100" aria-hidden="true"><path d="M22,84 L178,84"/><path d="M30,84 C30,50 48,24 62,14 C78,6 92,40 100,58"/><path d="M39,84 C39,54 50,30 59,21 C72,14 90,38 100,52"/><path d="M48,84 C48,58 52,36 56,28 C66,22 88,36 100,46"/><path d="M57,84 C57,62 54,42 53,35 C60,30 86,34 100,40"/><path d="M170,84 C170,50 152,24 138,14 C122,6 108,40 100,58"/><path d="M161,84 C161,54 150,30 141,21 C128,14 110,38 100,52"/><path d="M152,84 C152,58 148,36 144,28 C134,22 112,36 100,46"/><path d="M143,84 C143,62 146,42 147,35 C140,30 114,34 100,40"/><path d="M96,84 C96,74 98,68 100,64 C102,68 104,74 104,84"/></svg><span>Chapter One</span></div>
     <div class="cc-eyebrow" style="margin-bottom:10px;">The problem</div>
     <div class="cc-h2" style="margin-bottom:16px;">Most pediatric visits are over before you've finished your questions.</div>
     <div class="cc-body" style="font-size:16.5px;">Seven minutes with the doctor, a full waiting room, and a chart that never quite feels like your child's whole story. If that sounds familiar, there's a different way to do primary care.</div>
@@ -130,7 +132,7 @@
 
   <!-- Solution -->
   <div class="reveal" style="max-width:760px; margin:0 auto; padding:40px 56px 8px; text-align:center;">
-    <div class="bookmark-tag"><span>Chapter Two</span></div>
+    <div class="bookmark-tag"><svg class="book-icon" viewBox="0 0 200 100" aria-hidden="true"><path d="M22,84 L178,84"/><path d="M30,84 C30,50 48,24 62,14 C78,6 92,40 100,58"/><path d="M39,84 C39,54 50,30 59,21 C72,14 90,38 100,52"/><path d="M48,84 C48,58 52,36 56,28 C66,22 88,36 100,46"/><path d="M57,84 C57,62 54,42 53,35 C60,30 86,34 100,40"/><path d="M170,84 C170,50 152,24 138,14 C122,6 108,40 100,58"/><path d="M161,84 C161,54 150,30 141,21 C128,14 110,38 100,52"/><path d="M152,84 C152,58 148,36 144,28 C134,22 112,36 100,46"/><path d="M143,84 C143,62 146,42 147,35 C140,30 114,34 100,40"/><path d="M96,84 C96,74 98,68 100,64 C102,68 104,74 104,84"/></svg><span>Chapter Two</span></div>
     <div class="cc-eyebrow" style="margin-bottom:10px;">The practice</div>
     <div class="cc-h2" style="margin-bottom:16px;">A pediatric practice built around time, not volume.</div>
     <div class="cc-body" style="font-size:16.5px;">Crafted Care is a membership pediatric practice. Instead of billing insurance for every visit, families pay a simple monthly or annual membership for direct access to Krystyna Wesp, longer appointments, and a relationship that grows with your child from their first weeks through their teenage years.</div>
@@ -139,7 +141,7 @@
   <!-- Benefits grid -->
   <div style="max-width:1328px; margin:0 auto; padding:56px 56px 64px;">
     <div class="reveal" style="text-align:center; margin-bottom:40px;">
-      <div class="bookmark-tag"><span>Chapter Three</span></div>
+      <div class="bookmark-tag"><svg class="book-icon" viewBox="0 0 200 100" aria-hidden="true"><path d="M22,84 L178,84"/><path d="M30,84 C30,50 48,24 62,14 C78,6 92,40 100,58"/><path d="M39,84 C39,54 50,30 59,21 C72,14 90,38 100,52"/><path d="M48,84 C48,58 52,36 56,28 C66,22 88,36 100,46"/><path d="M57,84 C57,62 54,42 53,35 C60,30 86,34 100,40"/><path d="M170,84 C170,50 152,24 138,14 C122,6 108,40 100,58"/><path d="M161,84 C161,54 150,30 141,21 C128,14 110,38 100,52"/><path d="M152,84 C152,58 148,36 144,28 C134,22 112,36 100,46"/><path d="M143,84 C143,62 146,42 147,35 C140,30 114,34 100,40"/><path d="M96,84 C96,74 98,68 100,64 C102,68 104,74 104,84"/></svg><span>Chapter Three</span></div>
       <div class="cc-h2" style="font-size:28px;">Why families choose Crafted Care</div>
     </div>
     <div class="cc-benefits-grid">
@@ -174,7 +176,7 @@
   <div style="background:var(--sage-mist); padding:64px 56px;">
     <div style="max-width:1328px; margin:0 auto;">
       <div class="reveal" style="text-align:center; margin-bottom:40px;">
-        <div class="bookmark-tag"><span>Chapter Four</span></div>
+        <div class="bookmark-tag"><svg class="book-icon" viewBox="0 0 200 100" aria-hidden="true"><path d="M22,84 L178,84"/><path d="M30,84 C30,50 48,24 62,14 C78,6 92,40 100,58"/><path d="M39,84 C39,54 50,30 59,21 C72,14 90,38 100,52"/><path d="M48,84 C48,58 52,36 56,28 C66,22 88,36 100,46"/><path d="M57,84 C57,62 54,42 53,35 C60,30 86,34 100,40"/><path d="M170,84 C170,50 152,24 138,14 C122,6 108,40 100,58"/><path d="M161,84 C161,54 150,30 141,21 C128,14 110,38 100,52"/><path d="M152,84 C152,58 148,36 144,28 C134,22 112,36 100,46"/><path d="M143,84 C143,62 146,42 147,35 C140,30 114,34 100,40"/><path d="M96,84 C96,74 98,68 100,64 C102,68 104,74 104,84"/></svg><span>Chapter Four</span></div>
         <div class="cc-h2">How it works</div>
       </div>
       <div style="display:flex; gap:40px; flex-wrap:wrap;">
@@ -201,7 +203,7 @@
   <div class="reveal" style="max-width:1328px; margin:0 auto; padding:64px 56px;">
     <div class="cc-row" style="display:flex; gap:48px; align-items:center; flex-wrap:wrap;">
       <div style="flex:1; min-width:280px;">
-        <div class="bookmark-tag"><span>Chapter Five</span></div>
+        <div class="bookmark-tag"><svg class="book-icon" viewBox="0 0 200 100" aria-hidden="true"><path d="M22,84 L178,84"/><path d="M30,84 C30,50 48,24 62,14 C78,6 92,40 100,58"/><path d="M39,84 C39,54 50,30 59,21 C72,14 90,38 100,52"/><path d="M48,84 C48,58 52,36 56,28 C66,22 88,36 100,46"/><path d="M57,84 C57,62 54,42 53,35 C60,30 86,34 100,40"/><path d="M170,84 C170,50 152,24 138,14 C122,6 108,40 100,58"/><path d="M161,84 C161,54 150,30 141,21 C128,14 110,38 100,52"/><path d="M152,84 C152,58 148,36 144,28 C134,22 112,36 100,46"/><path d="M143,84 C143,62 146,42 147,35 C140,30 114,34 100,40"/><path d="M96,84 C96,74 98,68 100,64 C102,68 104,74 104,84"/></svg><span>Chapter Five</span></div>
         <div class="cc-eyebrow" style="margin-bottom:10px;">Membership</div>
         <div class="cc-h2" style="margin-bottom:16px;">Simple membership, priced by age.</div>
         <div class="cc-body" style="font-size:16.5px;">Monthly and annual plans, priced by your child's age, so families with more than one kid aren't paying one flat rate. Exact pricing is shared with waitlist families well before you have to decide anything, and there are no surprise per-visit bills once you're a member.</div>
@@ -226,7 +228,7 @@
         <span style="font-size:13px; color:var(--text-muted); text-align:center;">real photograph, Krystyna Wesp</span>
       </div>
       <div style="flex:1; min-width:320px;">
-        <div class="bookmark-tag"><span>Chapter Six</span></div>
+        <div class="bookmark-tag"><svg class="book-icon" viewBox="0 0 200 100" aria-hidden="true"><path d="M22,84 L178,84"/><path d="M30,84 C30,50 48,24 62,14 C78,6 92,40 100,58"/><path d="M39,84 C39,54 50,30 59,21 C72,14 90,38 100,52"/><path d="M48,84 C48,58 52,36 56,28 C66,22 88,36 100,46"/><path d="M57,84 C57,62 54,42 53,35 C60,30 86,34 100,40"/><path d="M170,84 C170,50 152,24 138,14 C122,6 108,40 100,58"/><path d="M161,84 C161,54 150,30 141,21 C128,14 110,38 100,52"/><path d="M152,84 C152,58 148,36 144,28 C134,22 112,36 100,46"/><path d="M143,84 C143,62 146,42 147,35 C140,30 114,34 100,40"/><path d="M96,84 C96,74 98,68 100,64 C102,68 104,74 104,84"/></svg><span>Chapter Six</span></div>
         <div class="cc-eyebrow" style="margin-bottom:10px;">About</div>
         <div class="cc-h2" style="font-size:26px; margin-bottom:16px;">A mother and a pediatrician, building the practice she wished she had.</div>
         <div class="cc-body" style="margin-bottom:12px; font-size:16px;">Krystyna Wesp is a mother first. She built Crafted Care for more time with every family: to answer every question, know your child's story, and be a real partner as your family grows.</div>
@@ -238,7 +240,7 @@
   <!-- FAQ, accordion -->
   <div class="reveal" style="max-width:840px; margin:0 auto; padding:72px 56px;">
     <div style="text-align:center; margin-bottom:40px;">
-      <div class="bookmark-tag"><span>Chapter Seven</span></div>
+      <div class="bookmark-tag"><svg class="book-icon" viewBox="0 0 200 100" aria-hidden="true"><path d="M22,84 L178,84"/><path d="M30,84 C30,50 48,24 62,14 C78,6 92,40 100,58"/><path d="M39,84 C39,54 50,30 59,21 C72,14 90,38 100,52"/><path d="M48,84 C48,58 52,36 56,28 C66,22 88,36 100,46"/><path d="M57,84 C57,62 54,42 53,35 C60,30 86,34 100,40"/><path d="M170,84 C170,50 152,24 138,14 C122,6 108,40 100,58"/><path d="M161,84 C161,54 150,30 141,21 C128,14 110,38 100,52"/><path d="M152,84 C152,58 148,36 144,28 C134,22 112,36 100,46"/><path d="M143,84 C143,62 146,42 147,35 C140,30 114,34 100,40"/><path d="M96,84 C96,74 98,68 100,64 C102,68 104,74 104,84"/></svg><span>Chapter Seven</span></div>
       <div class="cc-h2">Questions families ask</div>
     </div>
     <div>
@@ -316,7 +318,7 @@
     </svg>
     <div class="cc-row reveal" style="max-width:1328px; margin:0 auto; display:flex; gap:48px; align-items:center; justify-content:space-between; flex-wrap:wrap; position:relative;">
       <div style="max-width:480px;">
-        <div class="bookmark-tag"><span>The Next Chapter</span></div>
+        <div class="bookmark-tag"><svg class="book-icon" viewBox="0 0 200 100" aria-hidden="true"><path d="M22,84 L178,84"/><path d="M30,84 C30,50 48,24 62,14 C78,6 92,40 100,58"/><path d="M39,84 C39,54 50,30 59,21 C72,14 90,38 100,52"/><path d="M48,84 C48,58 52,36 56,28 C66,22 88,36 100,46"/><path d="M57,84 C57,62 54,42 53,35 C60,30 86,34 100,40"/><path d="M170,84 C170,50 152,24 138,14 C122,6 108,40 100,58"/><path d="M161,84 C161,54 150,30 141,21 C128,14 110,38 100,52"/><path d="M152,84 C152,58 148,36 144,28 C134,22 112,36 100,46"/><path d="M143,84 C143,62 146,42 147,35 C140,30 114,34 100,40"/><path d="M96,84 C96,74 98,68 100,64 C102,68 104,74 104,84"/></svg><span>The Next Chapter</span></div>
         <div class="cc-h2" style="margin-bottom:12px;">Your child's first chapter starts here.</div>
         <div class="cc-body" style="font-size:17px;">Crafted Care opens in December 2026. Join the waitlist today to be among the first families welcomed.</div>
       </div>

@@ -37,10 +37,7 @@
   .cc-h2{font-family:var(--font-serif);font-weight:700;font-size:32px;color:var(--ink);margin:0;}
   .cc-eyebrow{font-family:var(--font-sans);font-weight:600;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--deep-sage);}
   .cc-body{font-family:var(--font-sans);font-size:16px;line-height:1.6;color:var(--text-muted);}
-  .bookmark-tag{display:inline-flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:14px;}
-  .book-icon{width:112px;height:73px;overflow:visible;}
-  .book-icon path{fill:none;stroke:var(--deep-sage);stroke-width:6;stroke-linecap:round;stroke-linejoin:round;}
-  .bookmark-tag span{font-family:var(--font-sans);font-weight:600;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--deep-sage);}
+  .bookmark-tag{position:relative;display:inline-flex;align-items:flex-start;justify-content:center;padding:8px 20px 16px;background:var(--sage);color:var(--paper);font-family:var(--font-sans);font-weight:600;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;clip-path:polygon(0 0,100% 0,100% 82%,50% 100%,0 82%);margin-bottom:16px;filter:drop-shadow(0 4px 8px rgba(43,47,38,0.16));}
 
   .cc-btn-coral{display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;border-radius:999px;background:var(--coral);color:var(--paper);font-family:var(--font-sans);font-weight:600;font-size:16px;border:none;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease);}
   .cc-btn-coral:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(240,135,108,0.4);}
@@ -112,7 +109,7 @@
         <span style="font-size:13px; color:var(--text-muted); text-align:center;">real photograph, warm natural light, Krystyna Wesp with a family</span>
       </div>
       <div style="flex:1; min-width:340px;">
-        <div class="bookmark-tag"><svg class="book-icon" viewBox="0 0 200 130" aria-hidden="true"><path d="M40,55 L40,105 L160,105 L160,55"/><path d="M40,55 L160,55"/><path d="M40,55 L40,40 L56,40 L56,55"/><path d="M160,55 L160,40 L144,40 L144,55"/><path d="M40,55 C58,10 85,2 100,40"/><path d="M160,55 C142,10 115,2 100,40"/></svg><span>Chapter One</span></div>
+        <div class="bookmark-tag"><span>Chapter One</span></div>
         <div class="cc-eyebrow" style="margin-bottom:12px;">The Founder</div>
         <div style="font-family:var(--font-serif); font-weight:700; font-size:34px; line-height:1.2; color:var(--ink); margin-bottom:20px;">A mother and a pediatrician, building the practice I wished I had.</div>
         <div style="font-family:var(--font-serif); font-style:italic; font-size:19px; color:var(--deep-sage); line-height:1.5; margin-bottom:20px;">"I read to patients in clinic. I crochet a hat for every newborn I welcome. Care should feel personal, not procedural."</div>
@@ -144,7 +141,7 @@
   <!-- Benefits, chain-stitch cards -->
   <div style="max-width:1328px; margin:0 auto; padding:72px 56px;">
     <div class="reveal" style="text-align:center; margin-bottom:40px;">
-      <div class="bookmark-tag"><svg class="book-icon" viewBox="0 0 200 130" aria-hidden="true"><path d="M40,55 L40,105 L160,105 L160,55"/><path d="M40,55 L160,55"/><path d="M40,55 L40,40 L56,40 L56,55"/><path d="M160,55 L160,40 L144,40 L144,55"/><path d="M40,55 C58,10 85,2 100,40"/><path d="M160,55 C142,10 115,2 100,40"/></svg><span>Chapter Three</span></div>
+      <div class="bookmark-tag"><span>Chapter Three</span></div>
       <div class="cc-h2">What your family gets</div>
     </div>
     <div style="display:flex; gap:24px; flex-wrap:wrap;">
@@ -214,7 +211,7 @@
   <!-- Pricing signal -->
   <div style="background:var(--cream); padding:56px;">
     <div class="reveal" style="max-width:760px; margin:0 auto; text-align:center;">
-      <div class="bookmark-tag"><svg class="book-icon" viewBox="0 0 200 130" aria-hidden="true"><path d="M40,55 L40,105 L160,105 L160,55"/><path d="M40,55 L160,55"/><path d="M40,55 L40,40 L56,40 L56,55"/><path d="M160,55 L160,40 L144,40 L144,55"/><path d="M40,55 C58,10 85,2 100,40"/><path d="M160,55 C142,10 115,2 100,40"/></svg><span>Chapter Four</span></div>
+      <div class="bookmark-tag"><span>Chapter Four</span></div>
       <div class="cc-h2" style="font-size:26px; margin-bottom:14px;">Simple membership, priced by age.</div>
       <div class="cc-body">Monthly and annual plans, priced by your child's age. We'll share exact pricing with waitlist families well before you have to decide anything.</div>
     </div>
@@ -228,7 +225,7 @@
     </svg>
     <div class="cc-row reveal" style="max-width:1328px; margin:0 auto; display:flex; gap:48px; align-items:center; justify-content:space-between; flex-wrap:wrap; position:relative;">
       <div style="max-width:480px;">
-        <div class="bookmark-tag"><svg class="book-icon" viewBox="0 0 200 130" aria-hidden="true"><path d="M40,55 L40,105 L160,105 L160,55"/><path d="M40,55 L160,55"/><path d="M40,55 L40,40 L56,40 L56,55"/><path d="M160,55 L160,40 L144,40 L144,55"/><path d="M40,55 C58,10 85,2 100,40"/><path d="M160,55 C142,10 115,2 100,40"/></svg><span>The Next Chapter</span></div>
+        <div class="bookmark-tag"><span>The Next Chapter</span></div>
         <div class="cc-h2" style="margin-bottom:12px;">Your child's first chapter starts here.</div>
         <div class="cc-body" style="font-size:17px;">Crafted Care opens in December 2026. Join the waitlist today to be among the first families welcomed.</div>
       </div>

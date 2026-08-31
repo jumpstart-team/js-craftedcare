@@ -28,17 +28,13 @@
   .logo-mark{transition:transform .3s var(--ease);}
   .logo-lockup:hover .logo-mark{transform:rotate(-4deg) scale(1.05);}
 
-  .cc-card{background:var(--paper);border:1px solid var(--border-hairline);border-radius:14px;box-shadow:7px 8px 0 0 var(--sage-mist),14px 16px 0 0 var(--border-hairline),0 4px 18px rgba(43,47,38,0.10);padding:24px;position:relative;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
-  .cc-card:hover{transform:translateY(-5px);box-shadow:7px 8px 0 0 var(--sage-mist),14px 16px 0 0 var(--border-hairline),0 16px 32px rgba(43,47,38,0.16);}
-  .cc-card::after{content:'';position:absolute;top:0;right:0;width:0;height:0;border-style:solid;border-width:0 24px 24px 0;border-color:transparent var(--sage-mist) transparent transparent;}
-  .cc-card .cc-bookmark{position:absolute;top:0;right:26px;width:20px;height:36px;background:var(--coral);clip-path:polygon(0 0,100% 0,100% 78%,50% 100%,0 78%);transform:translateY(-100%);transition:transform .4s var(--ease);z-index:2;box-shadow:0 3px 6px rgba(43,47,38,0.18);}
-  .cc-card:hover .cc-bookmark{transform:translateY(0);}
+  .cc-card{background:var(--paper);border:1px solid var(--border-hairline);border-radius:18px;box-shadow:0 4px 18px rgba(43,47,38,0.08);padding:24px;position:relative;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
+  .cc-card:hover{transform:translateY(-5px);box-shadow:0 16px 32px rgba(240,135,108,0.18);}
   .cc-chain{position:absolute;top:0;left:0;right:0;height:6px;background-image:repeating-radial-gradient(circle at 5px 3px, transparent 0 2px, var(--border-hairline) 2.4px 3px, transparent 3.4px 10px);background-repeat:repeat-x;}
   .cc-h2{font-family:var(--font-serif);font-weight:700;font-size:32px;color:var(--ink);margin:0;}
   .cc-eyebrow{font-family:var(--font-sans);font-weight:600;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--deep-sage);}
   .cc-body{font-family:var(--font-sans);font-size:16px;line-height:1.6;color:var(--text-muted);}
-  .bookmark-tag{position:relative;display:inline-flex;align-items:flex-start;justify-content:center;padding:11px 26px 20px;background:var(--sage);color:var(--paper);font-family:var(--font-sans);font-weight:700;font-size:15px;letter-spacing:0.06em;text-transform:uppercase;clip-path:polygon(0 0,100% 0,100% 82%,50% 100%,0 82%);margin-bottom:18px;filter:drop-shadow(0 4px 8px rgba(43,47,38,0.16));}
-  .book-illustration{display:inline-block;height:44px;width:auto;margin:6px 0 16px;}
+  .bookmark-tag{display:inline-block;font-family:var(--font-serif);font-style:italic;font-weight:500;font-size:22px;color:var(--sage);margin-bottom:12px;}
 
   .cc-btn-coral{display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;border-radius:999px;background:var(--coral);color:var(--paper);font-family:var(--font-sans);font-weight:600;font-size:16px;border:none;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease);}
   .cc-btn-coral:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(240,135,108,0.4);}
@@ -111,8 +107,6 @@
       </div>
       <div style="flex:1; min-width:340px;">
         <div class="bookmark-tag"><span>Chapter One</span></div>
-        <br>
-        <img class="book-illustration" src="assets/open-book-icon.png" alt="">
         <div class="cc-eyebrow" style="margin-bottom:12px;">The Founder</div>
         <div style="font-family:var(--font-serif); font-weight:700; font-size:34px; line-height:1.2; color:var(--ink); margin-bottom:20px;">A mother and a pediatrician, building the practice I wished I had.</div>
         <div style="font-family:var(--font-serif); font-style:italic; font-size:19px; color:var(--deep-sage); line-height:1.5; margin-bottom:20px;">"I read to patients in clinic. I crochet a hat for every newborn I welcome. Care should feel personal, not procedural."</div>
@@ -125,7 +119,7 @@
   <!-- Problem / Solution combined -->
   <div style="background:var(--sage-mist); padding:64px 56px;">
     <div style="max-width:960px; margin:0 auto 24px;">
-      <div class="chapter-mark center reveal"><svg width="20" height="14" viewBox="0 0 20 14" fill="none"><path d="M10 3C8 1.6 5 1.6 1.5 3V13C5 11.6 8 11.6 10 13" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M10 3C12 1.6 15 1.6 18.5 3V13C15 11.6 12 11.6 10 13" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><span>Chapter Two</span></div>
+      <div class="bookmark-tag reveal" style="text-align:center; width:100%;"><span>Chapter Two</span></div>
     </div>
     <div class="cc-row reveal" style="max-width:960px; margin:0 auto; display:flex; gap:48px; flex-wrap:wrap;">
       <div style="flex:1; min-width:280px;">
@@ -145,33 +139,31 @@
   <div style="max-width:1328px; margin:0 auto; padding:72px 56px;">
     <div class="reveal" style="text-align:center; margin-bottom:40px;">
       <div class="bookmark-tag"><span>Chapter Three</span></div>
-      <br>
-      <img class="book-illustration" src="assets/open-book-icon.png" alt="">
       <div class="cc-h2">What your family gets</div>
     </div>
     <div style="display:flex; gap:24px; flex-wrap:wrap;">
-      <div class="cc-card reveal" style="--d:0ms; flex:1; min-width:260px;"><div class="cc-bookmark"></div>
+      <div class="cc-card reveal" style="--d:0ms; flex:1; min-width:260px;">
         <div class="cc-chain"></div>
         <div style="padding-top:12px;">
           <div style="font-family:var(--font-serif); font-size:20px; color:var(--ink); margin-bottom:10px;">Whole-child care</div>
           <div class="cc-body">From birth through the teenage years, one pediatrician who knows your family.</div>
         </div>
       </div>
-      <div class="cc-card reveal" style="--d:90ms; flex:1; min-width:260px;"><div class="cc-bookmark"></div>
+      <div class="cc-card reveal" style="--d:90ms; flex:1; min-width:260px;">
         <div class="cc-chain"></div>
         <div style="padding-top:12px;">
           <div style="font-family:var(--font-serif); font-size:20px; color:var(--ink); margin-bottom:10px;">Unhurried visits</div>
           <div class="cc-body">Longer appointments built for real questions, not the next patient in line.</div>
         </div>
       </div>
-      <div class="cc-card reveal" style="--d:180ms; flex:1; min-width:260px;"><div class="cc-bookmark"></div>
+      <div class="cc-card reveal" style="--d:180ms; flex:1; min-width:260px;">
         <div class="cc-chain"></div>
         <div style="padding-top:12px;">
           <div style="font-family:var(--font-serif); font-size:20px; color:var(--ink); margin-bottom:10px;">OMM</div>
           <div class="cc-body">Osteopathic manipulative medicine, offered at every well visit.</div>
         </div>
       </div>
-      <div class="cc-card reveal" style="--d:270ms; flex:1; min-width:260px;"><div class="cc-bookmark"></div>
+      <div class="cc-card reveal" style="--d:270ms; flex:1; min-width:260px;">
         <div class="cc-chain"></div>
         <div style="padding-top:12px;">
           <div style="font-family:var(--font-serif); font-size:20px; color:var(--ink); margin-bottom:10px;">Home visits</div>
@@ -217,8 +209,6 @@
   <div style="background:var(--cream); padding:56px;">
     <div class="reveal" style="max-width:760px; margin:0 auto; text-align:center;">
       <div class="bookmark-tag"><span>Chapter Four</span></div>
-      <br>
-      <img class="book-illustration" src="assets/open-book-icon.png" alt="">
       <div class="cc-h2" style="font-size:26px; margin-bottom:14px;">Simple membership, priced by age.</div>
       <div class="cc-body">Monthly and annual plans, priced by your child's age. We'll share exact pricing with waitlist families well before you have to decide anything.</div>
     </div>
@@ -230,12 +220,10 @@
     <div class="cc-row reveal" style="max-width:1328px; margin:0 auto; display:flex; gap:48px; align-items:center; justify-content:space-between; flex-wrap:wrap; position:relative;">
       <div style="max-width:480px;">
         <div class="bookmark-tag"><span>The Next Chapter</span></div>
-        <br>
-        <img class="book-illustration" src="assets/open-book-icon.png" alt="">
         <div class="cc-h2" style="margin-bottom:12px;">Your child's first chapter starts here.</div>
         <div class="cc-body" style="font-size:17px;">Crafted Care opens in December 2026. Join the waitlist today to be among the first families welcomed.</div>
       </div>
-      <div class="cc-card" style="max-width:380px; width:100%;"><div class="cc-bookmark"></div>
+      <div class="cc-card" style="max-width:380px; width:100%;">
         <div style="font-family:var(--font-serif); font-size:22px; color:var(--ink); margin-bottom:16px;">Join the waitlist</div>
         <div style="display:flex; flex-direction:column; gap:12px;">
           <input placeholder="Parent name" style="padding:12px 14px; border-radius:8px; border:1px solid var(--border-hairline); font-size:16px; color:var(--ink); font-family:var(--font-sans); transition:border-color .2s ease, box-shadow .2s ease;" onfocus="this.style.borderColor='var(--deep-sage)'; this.style.boxShadow='0 0 0 3px rgba(80,98,68,0.12)';" onblur="this.style.borderColor='var(--border-hairline)'; this.style.boxShadow='none';">

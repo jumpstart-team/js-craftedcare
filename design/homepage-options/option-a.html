@@ -3,251 +3,621 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Crafted Care Pediatrics — Homepage Option A: Clarity First</title>
+<title>Crafted Care Pediatrics — Homepage Option A: Turning the Page</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&display=swap">
 <style>
+  /*
+    Type scale (px): 13 badge/chrome, 14 tag/nav-status, 16 body floor, 17 lead body,
+    19 card title, 22 quote, 30 h2, 42 h1.
+    Spacing unit: 8px, used in multiples throughout (16/24/32/40/48/56/64/72/96/104/116).
+  */
   :root{
     --sage:#9CAF88;--coral:#F0876C;--deep-sage:#506244;--deep-coral:#A8452F;
     --cream:#F2EBDD;--sage-mist:#E6EBDF;--paper:#FDFBF7;--ink:#2B2F26;
     --text-muted:#5C6155;--border-hairline:#D9CDBB;
     --font-serif:'Literata',Georgia,serif;--font-sans:'Figtree',system-ui,sans-serif;
     --ease:cubic-bezier(.16,1,.3,1);
+    --flip-ease:cubic-bezier(.61,.06,.35,1);
+    --flip-ms:900ms;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{margin:0;background:var(--paper);font-family:var(--font-sans);color:var(--ink);}
-  a{color:var(--deep-sage);text-decoration:none;transition:color .2s ease;}
-  a:hover{color:var(--deep-coral);}
+  html,body{margin:0;padding:0;background:var(--paper);}
+  body{font-family:var(--font-sans);color:var(--ink);}
+  button{font-family:inherit;}
 
-  .site-header{position:sticky;top:0;z-index:50;background:rgba(253,251,247,0.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:box-shadow .3s ease;}
-  .site-header.is-scrolled{box-shadow:0 2px 16px rgba(43,47,38,0.08);}
-  .nav-link{position:relative;padding-bottom:2px;}
-  .nav-link::after{content:'';position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--deep-coral);transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease);}
-  .nav-link:hover::after,.nav-link.active::after{transform:scaleX(1);}
-  .nav-link.active{color:var(--deep-sage);}
-  .logo-mark{transition:transform .3s var(--ease);}
-  .logo-lockup:hover .logo-mark{transform:rotate(-4deg) scale(1.05);}
+  /* ===== App chrome: header + bottom chapter nav (always on top, outside the flip stage) ===== */
+  .app-header{
+    position:fixed;top:16px;left:16px;z-index:100;
+    display:flex;align-items:center;gap:12px;
+    padding:8px 16px 8px 8px;border-radius:14px;
+    background:rgba(253,251,247,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    box-shadow:0 6px 20px rgba(43,47,38,.10);
+  }
+  .app-header img{height:40px;width:auto;display:block;}
 
-  .cc-card{background:var(--paper);border:1px solid var(--border-hairline);border-radius:14px;position:relative;box-shadow:0 4px 18px rgba(43,47,38,0.08);padding:24px;transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
-  .cc-card:hover{transform:translateY(-5px);box-shadow:0 16px 32px rgba(43,47,38,0.14);}
-  .cc-stitch{border-top:2px dashed var(--border-hairline);padding-top:14px;}
-  .cc-h2{font-family:var(--font-serif);font-weight:700;font-size:32px;color:var(--ink);margin:0;}
-  .cc-eyebrow{font-family:var(--font-sans);font-weight:600;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--deep-sage);}
-  .cc-body{font-family:var(--font-sans);font-size:16px;line-height:1.6;color:var(--text-muted);}
-  .bookmark-tag{display:inline-block;font-family:var(--font-sans);font-weight:600;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--deep-sage);margin-bottom:14px;}
-  .bookmark-tag span{position:relative;}
-  .bookmark-tag span::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--border-hairline);}
+  .waitlist-pill{
+    position:fixed;top:16px;right:16px;z-index:100;
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:11px 22px;border-radius:999px;background:var(--deep-coral);color:var(--paper);
+    font-family:var(--font-sans);font-weight:600;font-size:16px;border:none;cursor:pointer;
+    box-shadow:0 6px 20px rgba(43,47,38,.14);
+    transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+  }
+  .waitlist-pill:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(240,135,108,.4);}
+  .waitlist-pill:active{transform:translateY(0);}
 
-  .cc-btn-coral{display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;border-radius:999px;background:var(--coral);color:var(--paper);font-family:var(--font-sans);font-weight:600;font-size:16px;border:none;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease);}
-  .cc-btn-coral:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(240,135,108,0.4);}
+  .chapter-nav{
+    position:fixed;left:0;right:0;bottom:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:14px 24px;background:rgba(253,251,247,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    box-shadow:0 -8px 24px rgba(43,47,38,.10);
+  }
+  .nav-arrow{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:10px 16px;border-radius:999px;border:1px solid var(--border-hairline);
+    background:var(--paper);color:var(--ink);font-weight:600;font-size:16px;cursor:pointer;
+    transition:transform .2s var(--ease),background .2s ease,color .2s ease,border-color .2s ease;
+  }
+  .nav-arrow:hover:not([aria-disabled="true"]){transform:translateY(-2px);border-color:var(--deep-sage);color:var(--deep-sage);}
+  .nav-arrow[aria-disabled="true"]{opacity:.35;pointer-events:none;cursor:default;}
+
+  .chapter-progress{display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .chapter-status{font-family:var(--font-sans);font-weight:600;font-size:13px;letter-spacing:.04em;color:var(--text-muted);}
+  .chapter-dots{display:flex;align-items:center;gap:10px;}
+  .chapter-dot{
+    width:10px;height:10px;border-radius:50%;border:1.5px solid var(--deep-sage);background:transparent;
+    padding:0;cursor:pointer;transition:transform .2s var(--ease),background .2s ease;
+  }
+  .chapter-dot:hover{transform:scale(1.25);}
+  .chapter-dot.is-current{background:var(--deep-sage);border-color:var(--deep-sage);transform:scale(1.3);}
+
+  @media (max-width:720px){
+    .chapter-status{display:none;}
+    .nav-arrow span.arrow-label{display:none;}
+    .app-header img{height:32px;}
+    .waitlist-pill{padding:9px 16px;font-size:16px;}
+  }
+
+  /* ===== Book stage ===== */
+  .book-viewport{position:relative;min-height:100dvh;overflow:hidden;background:var(--paper);}
+
+  .chapter{
+    position:absolute;inset:0;
+    perspective:2200px;perspective-origin:50% 50%;
+    opacity:0;visibility:hidden;pointer-events:none;z-index:0;
+  }
+  .chapter.is-active{opacity:1;visibility:visible;pointer-events:auto;z-index:2;}
+
+  .chapter-flip-inner{position:absolute;inset:0;transform-style:preserve-3d;transform-origin:right center;}
+  .chapter.is-flipping-out .chapter-flip-inner{box-shadow:0 30px 90px rgba(43,47,38,.35);}
+
+  .chapter-face{
+    position:absolute;inset:0;overflow:hidden;
+    backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    display:flex;flex-direction:column;
+  }
+  .chapter-face-back{
+    transform:rotateY(180deg);
+    background:var(--cream);align-items:center;justify-content:center;
+  }
+  .chapter-face-back img{width:64px;height:auto;opacity:.32;margin-bottom:14px;}
+  .chapter-face-back .back-mark{font-family:var(--font-sans);font-size:13px;color:var(--text-muted);}
+
+  .flip-shade{
+    position:absolute;inset:0;pointer-events:none;opacity:0;
+    background:linear-gradient(115deg, rgba(43,47,38,0) 0%, rgba(43,47,38,.5) 48%, rgba(43,47,38,0) 80%);
+  }
+  .chapter.is-flipping-out .flip-shade{animation:shadeSweep var(--flip-ms) ease;}
+  @keyframes shadeSweep{0%{opacity:0;}42%{opacity:.5;}100%{opacity:0;}}
+
+  .chapter-content{
+    max-width:1328px;margin:0 auto;width:100%;height:100%;box-sizing:border-box;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:104px 64px 120px;overflow-y:auto;
+  }
+
+  .bookmark-tag{
+    position:relative;display:inline-flex;align-items:flex-start;justify-content:center;
+    padding:9px 22px 16px;background:var(--deep-sage);color:var(--paper);
+    font-family:var(--font-sans);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;
+    clip-path:polygon(0 0,100% 0,100% 82%,50% 100%,0 82%);
+    margin-bottom:20px;filter:drop-shadow(0 4px 8px rgba(43,47,38,.16));
+  }
+  .pg-h1{font-family:var(--font-serif);font-weight:700;font-size:42px;line-height:1.15;color:var(--ink);margin:0 0 20px;}
+  .pg-h2{font-family:var(--font-serif);font-weight:700;font-size:30px;line-height:1.2;color:var(--ink);margin:0 0 16px;}
+  .pg-lead{font-family:var(--font-sans);font-size:17px;line-height:1.6;color:var(--ink);margin:0 0 16px;}
+  .pg-body{font-family:var(--font-sans);font-size:16px;line-height:1.6;color:var(--text-muted);margin:0;}
+  .pg-quote{font-family:var(--font-serif);font-style:italic;font-size:22px;line-height:1.5;color:var(--deep-sage);margin:0 0 18px;}
+  .pg-cite{font-family:var(--font-sans);font-weight:600;font-size:15px;color:var(--text-muted);}
+
+  .pg-row{display:flex;gap:48px;align-items:center;flex-wrap:wrap;}
+  .pg-col{flex:1;min-width:300px;}
+  .pg-photo{
+    flex:1;min-width:260px;max-width:420px;background:var(--sage-mist);border-radius:14px;
+    min-height:240px;max-height:340px;display:flex;align-items:center;justify-content:center;
+    padding:20px;font-size:13px;color:var(--text-muted);text-align:center;
+  }
+
+  .cc-btn-coral{
+    display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;border-radius:999px;
+    background:var(--deep-coral);color:var(--paper);font-family:var(--font-sans);font-weight:600;font-size:16px;
+    border:none;cursor:pointer;text-decoration:none;
+    transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+  }
+  .cc-btn-coral:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(240,135,108,.4);}
   .cc-btn-coral:active{transform:translateY(-1px);}
 
-  .cc-photo{position:relative;overflow:hidden;transition:transform .5s var(--ease);}
-  .cc-photo:hover{transform:scale(1.015);}
-
-  .step-num{display:inline-block;transition:transform .3s var(--ease),color .3s ease;}
-  .step:hover .step-num{transform:translateY(-4px);color:var(--deep-sage);}
-
-  /* scroll reveal */
-  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0ms);}
-  .reveal.is-visible{opacity:1;transform:translateY(0);}
-
-  /* hero load-in */
-  .hero-in>*{opacity:0;transform:translateY(18px);animation:heroIn .8s var(--ease) forwards;}
-  .hero-in>*:nth-child(1){animation-delay:.05s;}
-  .hero-in>*:nth-child(2){animation-delay:.18s;}
-  .hero-in>*:nth-child(3){animation-delay:.31s;}
-  .hero-in>*:nth-child(4){animation-delay:.44s;}
-  .hero-photo-in{opacity:0;transform:translateY(18px) scale(0.98);animation:heroIn .9s var(--ease) forwards;animation-delay:.3s;}
-  @keyframes heroIn{to{opacity:1;transform:translateY(0) scale(1);}}
-
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;}
-    .reveal{opacity:1;transform:none;}
-    html{scroll-behavior:auto;}
+  .cc-card{
+    background:var(--paper);border:1px solid var(--border-hairline);border-radius:14px;position:relative;overflow:hidden;
+    box-shadow:6px 7px 0 0 var(--sage-mist),12px 14px 0 0 var(--border-hairline),0 4px 18px rgba(43,47,38,.08);
+    padding:18px 20px;transition:transform .3s var(--ease),box-shadow .3s var(--ease);
   }
-  @media (max-width: 900px){
-    .cc-row{flex-direction:column;}
+  .cc-card:hover{transform:translateY(-4px);box-shadow:6px 7px 0 0 var(--sage-mist),12px 14px 0 0 var(--border-hairline),0 14px 28px rgba(43,47,38,.14);}
+  .cc-card::after{
+    content:'';position:absolute;top:0;right:0;width:0;height:0;border-style:solid;border-width:0 18px 18px 0;
+    border-color:transparent var(--sage-mist) transparent transparent;
+  }
+  .cc-stitch{border-top:2px dashed var(--border-hairline);padding-top:10px;margin-top:8px;}
+  .cc-card-title{font-family:var(--font-serif);font-size:18px;color:var(--ink);margin:0 0 4px;}
+
+  .benefits-grid{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:18px;}
+
+  .steps-row{display:flex;gap:40px;flex-wrap:wrap;}
+  .step{flex:1;min-width:200px;}
+  .step-num{font-family:var(--font-serif);font-size:28px;color:var(--deep-sage);margin-bottom:6px;}
+  .step-title{font-family:var(--font-serif);font-size:18px;color:var(--ink);margin-bottom:6px;}
+
+  .included-list{display:flex;flex-direction:column;gap:8px;}
+  .included-list span{font-family:var(--font-sans);font-size:16px;color:var(--text-muted);}
+
+  .waitlist-form{display:flex;flex-direction:column;gap:12px;max-width:380px;}
+  .waitlist-form[hidden]{display:none;}
+  .waitlist-form input{
+    padding:13px 14px;border-radius:8px;border:1px solid var(--border-hairline);font-size:16px;
+    color:var(--ink);font-family:var(--font-sans);background:var(--paper);
+    transition:border-color .2s ease,box-shadow .2s ease;
+  }
+  .waitlist-form input:focus{outline:none;border-color:var(--deep-sage);box-shadow:0 0 0 3px rgba(80,98,68,.14);}
+  .waitlist-form label{font-family:var(--font-sans);font-size:16px;font-weight:600;color:var(--ink);margin-bottom:-6px;}
+
+  .final-footer{display:flex;flex-direction:column;gap:4px;margin-top:20px;font-size:16px;color:var(--text-muted);}
+
+  @media (max-width:900px){
+    /* justify-content:flex-start (not center) here: on narrow viewports the stacked
+       .pg-row content can be taller than the available height, and a centered flex
+       container clips overflow symmetrically on both edges, pushing content up and
+       under the fixed header. Top-aligned + the existing overflow-y:auto lets it
+       scroll into view instead. */
+    .chapter-content{padding:96px 28px 128px;justify-content:flex-start;}
+    .benefits-grid{grid-template-columns:1fr 1fr;}
+    .pg-h1{font-size:34px;}
+    .pg-h2{font-size:26px;}
+  }
+  @media (max-width:600px){
+    .benefits-grid{grid-template-columns:1fr;}
+    .pg-row{flex-direction:column;}
+    .steps-row{flex-direction:column;gap:24px;}
+  }
+
+  /* Reduced motion: kill the transform transition + shade animation outright (JS also branches to crossfade) */
+  @media (prefers-reduced-motion: reduce){
+    .chapter-flip-inner{transition:none !important;}
+    .flip-shade{animation:none !important;}
+    .cc-card,.nav-arrow,.chapter-dot,.waitlist-pill,.cc-btn-coral{transition-duration:.001ms !important;}
   }
 </style>
 </head>
 <body>
 
-<div style="width:100%;">
+<header class="app-header">
+  <img src="assets/logo-lockup-color.png" alt="Crafted Care Pediatrics">
+</header>
+<button class="waitlist-pill" id="headerWaitlistBtn" type="button">Join the Waitlist</button>
 
-  <!-- Header -->
-  <div class="site-header" data-header style="display:flex; align-items:center; justify-content:space-between; padding:20px 56px; flex-wrap:wrap; gap:16px;">
-    <a href="#" class="logo-lockup" style="display:flex; align-items:center; gap:12px;">
-      <img class="logo-mark" src="assets/logo-lockup-color.png" alt="Crafted Care Pediatrics" style="height:84px; display:block;">
-    </a>
-    <div style="display:flex; gap:32px; font-size:15px; font-weight:600;">
-      <span class="nav-link active">Home</span>
-      <span class="nav-link" style="color:var(--ink);">About</span>
-      <span class="nav-link" style="color:var(--ink);">Services</span>
-      <a href="#waitlist" class="nav-link" style="color:var(--ink);">Join</a>
-    </div>
-  </div>
+<main class="book-viewport" id="bookViewport">
 
-  <!-- Hero -->
-  <div style="background:var(--cream); padding:56px;">
-    <div class="cc-row hero-in" style="display:flex; gap:48px; align-items:center; max-width:1328px; margin:0 auto;">
-      <div style="max-width:560px; flex-shrink:0;">
-        <span style="display:inline-flex; padding:5px 14px; border-radius:999px; background:#FBE3DA; color:var(--deep-coral); font-weight:600; font-size:12.5px; letter-spacing:0.03em; margin-bottom:20px;">Opening December 2026</span>
-        <div style="font-family:var(--font-serif); font-weight:700; font-size:46px; line-height:1.15; color:var(--ink); margin-bottom:20px;">Crafting a lifetime of health, one chapter at a time.</div>
-        <div class="cc-body" style="font-size:18px; margin-bottom:32px;">Unhurried pediatric direct primary care in North Fort Worth, from newborn home visits to whole-child care as your family grows.</div>
-        <a href="#waitlist" class="cc-btn-coral">Join the Waitlist</a>
-      </div>
-      <div class="cc-photo hero-photo-in" style="flex:1; background:var(--sage-mist); border-radius:14px; min-height:340px; display:flex; align-items:center; justify-content:center; padding:24px;">
-        <span style="font-size:13px; color:var(--text-muted); text-align:center;">real photograph, warm natural light, a real family (no stock photography)</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Problem -->
-  <div class="reveal" style="max-width:760px; margin:0 auto; padding:72px 56px 8px; text-align:center;">
-    <div class="bookmark-tag"><span>Chapter One</span></div>
-    <div class="cc-h2" style="font-size:30px; margin-bottom:16px;">Most pediatric visits are over before you've finished your questions.</div>
-    <div class="cc-body" style="font-size:17px;">Seven minutes with the doctor, a full waiting room, and a chart that never quite feels like your child's whole story. Crafted Care is a different way to do pediatric primary care.</div>
-  </div>
-
-  <!-- Benefits -->
-  <div style="max-width:1328px; margin:0 auto; padding:64px 56px;">
-    <div class="reveal" style="text-align:center; margin-bottom:32px;">
-      <div class="bookmark-tag"><span>Chapter Two</span></div>
-      <div class="cc-h2" style="font-size:26px;">What your family gets</div>
-    </div>
-    <div style="display:flex; gap:24px; flex-wrap:wrap;">
-      <div class="cc-card reveal" style="--d:0ms; flex:1; min-width:260px;">
-        <div class="cc-stitch">
-          <div style="font-family:var(--font-serif); font-size:20px; color:var(--ink); margin-bottom:10px;">Whole-child care</div>
-          <div class="cc-body">From birth through the teenage years, one pediatrician who knows your family.</div>
+  <!-- Chapter 1 — Cover + the problem -->
+  <section class="chapter is-active" id="chapter-0" data-index="0" role="region" aria-roledescription="chapter" aria-label="Chapter 1: The Story Begins">
+    <div class="chapter-flip-inner">
+      <div class="chapter-face chapter-face-front" style="background:var(--cream);">
+        <div class="chapter-content">
+          <div class="bookmark-tag">Chapter One</div>
+          <div class="pg-row">
+            <div class="pg-col">
+              <h1 class="pg-h1">Crafting a lifetime of health, one chapter at a time.</h1>
+              <p class="pg-lead">Pediatric direct primary care in North Fort Worth, TX, built around unhurried time with the same pediatrician, from your baby's first days through their teenage years.</p>
+              <p class="pg-body" style="margin-bottom:24px;">No more seven-minute visits, a full waiting room, and a chart that never quite feels like your child's whole story. There's a different way to do primary care.</p>
+              <button class="cc-btn-coral" type="button" data-jump="5">Join the Waitlist</button>
+            </div>
+            <div class="pg-photo">real photograph, warm natural light, a real family (no stock photography)</div>
+          </div>
         </div>
+        <div class="flip-shade"></div>
       </div>
-      <div class="cc-card reveal" style="--d:90ms; flex:1; min-width:260px;">
-        <div class="cc-stitch">
-          <div style="font-family:var(--font-serif); font-size:20px; color:var(--ink); margin-bottom:10px;">OMM</div>
-          <div class="cc-body">Osteopathic manipulative medicine, offered at every well visit.</div>
-        </div>
-      </div>
-      <div class="cc-card reveal" style="--d:180ms; flex:1; min-width:260px;">
-        <div class="cc-stitch">
-          <div style="font-family:var(--font-serif); font-size:20px; color:var(--ink); margin-bottom:10px;">Home visits</div>
-          <div class="cc-body">Birth to 2 months, at your house, not ours.</div>
-        </div>
-      </div>
-      <div class="cc-card reveal" style="--d:270ms; flex:1; min-width:260px;">
-        <div class="cc-stitch">
-          <div style="font-family:var(--font-serif); font-size:20px; color:var(--ink); margin-bottom:10px;">Direct access</div>
-          <div class="cc-body">Reach Krystyna directly when a question comes up, not a call center.</div>
-        </div>
+      <div class="chapter-face chapter-face-back">
+        <img src="assets/logo-mark.webp" alt="" aria-hidden="true">
+        <div class="back-mark">Crafted Care Pediatrics</div>
+        <div class="flip-shade"></div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- How it works -->
-  <div style="background:var(--sage-mist); padding:64px 56px;">
-    <div style="max-width:1328px; margin:0 auto;">
-      <div class="reveal" style="margin-bottom:40px;">
-        <div class="bookmark-tag"><span>Chapter Three</span></div>
-        <div class="cc-h2">How it works</div>
+  <!-- Chapter 2 — What your family gets -->
+  <section class="chapter" id="chapter-1" data-index="1" role="region" aria-roledescription="chapter" aria-label="Chapter 2: What Your Family Gets">
+    <div class="chapter-flip-inner">
+      <div class="chapter-face chapter-face-front" style="background:var(--paper);">
+        <div class="chapter-content">
+          <div class="bookmark-tag">Chapter Two</div>
+          <h2 class="pg-h2">What your family gets</h2>
+          <div class="benefits-grid">
+            <div class="cc-card"><div class="cc-stitch">
+              <div class="cc-card-title">Whole-child care</div>
+              <p class="pg-body">Birth through the teenage years, with one pediatrician who knows your family.</p>
+            </div></div>
+            <div class="cc-card"><div class="cc-stitch">
+              <div class="cc-card-title">Unhurried visits</div>
+              <p class="pg-body">Longer appointments built for real questions, not the next patient in line.</p>
+            </div></div>
+            <div class="cc-card"><div class="cc-stitch">
+              <div class="cc-card-title">Direct access</div>
+              <p class="pg-body">Reach Krystyna directly when something comes up, not a call center.</p>
+            </div></div>
+            <div class="cc-card"><div class="cc-stitch">
+              <div class="cc-card-title">OMM</div>
+              <p class="pg-body">Osteopathic manipulative medicine, offered at every well visit.</p>
+            </div></div>
+            <div class="cc-card"><div class="cc-stitch">
+              <div class="cc-card-title">Home visits</div>
+              <p class="pg-body">Birth to 2 months, at your house, not ours.</p>
+            </div></div>
+            <div class="cc-card"><div class="cc-stitch">
+              <div class="cc-card-title">Behavioral health</div>
+              <p class="pg-body">Support for the whole child, not just physical checkups.</p>
+            </div></div>
+          </div>
+        </div>
+        <div class="flip-shade"></div>
       </div>
-      <div style="display:flex; gap:40px; flex-wrap:wrap;">
-        <div class="step reveal" style="--d:0ms; flex:1; min-width:220px;">
-          <div class="step-num" style="font-family:var(--font-serif); font-size:32px; color:var(--sage); margin-bottom:8px;">1</div>
-          <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;">Join the waitlist</div>
-          <div class="cc-body">Tell us about your family so we can reach out as we get closer to opening.</div>
-        </div>
-        <div class="step reveal" style="--d:110ms; flex:1; min-width:220px;">
-          <div class="step-num" style="font-family:var(--font-serif); font-size:32px; color:var(--sage); margin-bottom:8px;">2</div>
-          <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;">Meet Krystyna</div>
-          <div class="cc-body">Once we open, schedule a meet and greet to see if Crafted Care is the right fit.</div>
-        </div>
-        <div class="step reveal" style="--d:220ms; flex:1; min-width:220px;">
-          <div class="step-num" style="font-family:var(--font-serif); font-size:32px; color:var(--sage); margin-bottom:8px;">3</div>
-          <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;">Start whole-child care</div>
-          <div class="cc-body">Choose your membership and start unhurried, direct access pediatric care.</div>
-        </div>
+      <div class="chapter-face chapter-face-back">
+        <img src="assets/logo-mark.webp" alt="" aria-hidden="true">
+        <div class="back-mark">Crafted Care Pediatrics</div>
+        <div class="flip-shade"></div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Pricing signal -->
-  <div class="reveal" style="max-width:760px; margin:0 auto; padding:64px 56px; text-align:center;">
-    <div class="bookmark-tag"><span>Chapter Four</span></div>
-    <div class="cc-h2" style="font-size:28px; margin-bottom:16px;">Simple membership, priced by age.</div>
-    <div class="cc-body" style="font-size:16px;">Monthly and annual plans, priced by your child's age so families with more than one kid aren't paying one flat rate. We'll share exact pricing with waitlist families well before you have to decide anything.</div>
-  </div>
-
-  <!-- About teaser -->
-  <div class="reveal" style="max-width:1328px; margin:0 auto; padding:16px 56px 72px;">
-    <div class="cc-row" style="display:flex; gap:48px; align-items:center; flex-wrap:wrap;">
-      <div class="cc-photo" style="flex:1; min-width:260px; background:var(--cream); border-radius:14px; min-height:220px; display:flex; align-items:center; justify-content:center; padding:24px;">
-        <span style="font-size:13px; color:var(--text-muted); text-align:center;">real photograph, Krystyna Wesp</span>
-      </div>
-      <div style="flex:1; min-width:320px;">
-        <div class="bookmark-tag"><span>Chapter Five</span></div>
-        <div class="cc-h2" style="font-size:26px; margin-bottom:16px;">A mother and a pediatrician, building the practice she wished she had.</div>
-        <div class="cc-body" style="margin-bottom:16px;">Krystyna Wesp is a mother first. She built Crafted Care for more time with every family: to answer every question, know your child's story, and be a real partner as your family grows. She reads to patients in clinic and hand-crochets a hat for every newborn she welcomes.</div>
-        <a href="#" style="font-weight:600; font-size:15px;">Meet Krystyna &rarr;</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Final CTA -->
-  <div id="waitlist" style="background:var(--cream); padding:64px 56px; scroll-margin-top:88px; position:relative; overflow:hidden;">
-    <img src="assets/logo-lockup-color.png" alt="" aria-hidden="true" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:min(420px,55%); height:auto; opacity:0.08; pointer-events:none;">
-    <div class="cc-row reveal" style="max-width:1328px; margin:0 auto; display:flex; gap:48px; align-items:center; justify-content:space-between; flex-wrap:wrap; position:relative;">
-      <div style="max-width:480px;">
-        <div class="bookmark-tag"><span>The Next Chapter</span></div>
-        <div class="cc-h2" style="margin-bottom:12px;">Your child's first chapter starts here.</div>
-        <div class="cc-body" style="font-size:17px;">Crafted Care opens in December 2026. Join the waitlist today to be among the first families welcomed.</div>
-      </div>
-      <div class="cc-card" style="max-width:380px; width:100%;">
-        <div style="font-family:var(--font-serif); font-size:22px; color:var(--ink); margin-bottom:16px;">Join the waitlist</div>
-        <div style="display:flex; flex-direction:column; gap:12px;">
-          <input placeholder="Parent name" style="padding:12px 14px; border-radius:8px; border:1px solid var(--border-hairline); font-size:16px; color:var(--ink); font-family:var(--font-sans); transition:border-color .2s ease, box-shadow .2s ease;" onfocus="this.style.borderColor='var(--deep-sage)'; this.style.boxShadow='0 0 0 3px rgba(80,98,68,0.12)';" onblur="this.style.borderColor='var(--border-hairline)'; this.style.boxShadow='none';">
-          <input placeholder="Email address" style="padding:12px 14px; border-radius:8px; border:1px solid var(--border-hairline); font-size:16px; color:var(--ink); font-family:var(--font-sans); transition:border-color .2s ease, box-shadow .2s ease;" onfocus="this.style.borderColor='var(--deep-sage)'; this.style.boxShadow='0 0 0 3px rgba(80,98,68,0.12)';" onblur="this.style.borderColor='var(--border-hairline)'; this.style.boxShadow='none';">
-          <input placeholder="Child's age (or due date)" style="padding:12px 14px; border-radius:8px; border:1px solid var(--border-hairline); font-size:16px; color:var(--ink); font-family:var(--font-sans); transition:border-color .2s ease, box-shadow .2s ease;" onfocus="this.style.borderColor='var(--deep-sage)'; this.style.boxShadow='0 0 0 3px rgba(80,98,68,0.12)';" onblur="this.style.borderColor='var(--border-hairline)'; this.style.boxShadow='none';">
-          <button class="cc-btn-coral" style="margin-top:4px;">Join the Waitlist</button>
+  <!-- Chapter 3 — How it works -->
+  <section class="chapter" id="chapter-2" data-index="2" role="region" aria-roledescription="chapter" aria-label="Chapter 3: How It Works">
+    <div class="chapter-flip-inner">
+      <div class="chapter-face chapter-face-front" style="background:var(--sage-mist);">
+        <div class="chapter-content">
+          <div class="bookmark-tag">Chapter Three</div>
+          <h2 class="pg-h2">How it works</h2>
+          <div class="steps-row">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-title">Join the waitlist</div>
+              <p class="pg-body">Tell us about your family so we can reach out as we get closer to opening.</p>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-title">Meet Krystyna</div>
+              <p class="pg-body">Once we open, schedule a meet and greet to see if Crafted Care is the right fit.</p>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-title">Start whole-child care</div>
+              <p class="pg-body">Choose your membership and start unhurried, direct access pediatric care.</p>
+            </div>
+          </div>
         </div>
+        <div class="flip-shade"></div>
+      </div>
+      <div class="chapter-face chapter-face-back">
+        <img src="assets/logo-mark.webp" alt="" aria-hidden="true">
+        <div class="back-mark">Crafted Care Pediatrics</div>
+        <div class="flip-shade"></div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Footer -->
-  <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; padding:40px 56px; border-top:1px solid var(--border-hairline); font-size:13px; color:var(--text-muted);">
-    <span>Crafted Care Pediatrics, North Fort Worth, TX</span>
-    <span>kwesp@craftedcarepeds.com</span>
-  </div>
+  <!-- Chapter 4 — Membership / pricing signal -->
+  <section class="chapter" id="chapter-3" data-index="3" role="region" aria-roledescription="chapter" aria-label="Chapter 4: Membership, Priced by Age">
+    <div class="chapter-flip-inner">
+      <div class="chapter-face chapter-face-front" style="background:var(--cream);">
+        <div class="chapter-content">
+          <div class="bookmark-tag">Chapter Four</div>
+          <div class="pg-row">
+            <div class="pg-col">
+              <h2 class="pg-h2">Simple membership, priced by age.</h2>
+              <p class="pg-body">Monthly and annual plans, priced by your child's age. Families with more than one kid aren't stuck paying one flat rate. Exact pricing is shared with waitlist families well before you have to decide anything, and there are no surprise per-visit bills once you're a member.</p>
+            </div>
+            <div class="cc-card" style="flex:1;min-width:280px;max-width:400px;">
+              <div class="cc-card-title" style="margin-bottom:12px;">What's included</div>
+              <div class="included-list">
+                <span>Unhurried, direct access primary care</span>
+                <span>OMM at every well visit</span>
+                <span>Behavioral and whole-child support</span>
+                <span>Home visits, birth to 2 months</span>
+                <span>Age-banded monthly or annual billing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flip-shade"></div>
+      </div>
+      <div class="chapter-face chapter-face-back">
+        <img src="assets/logo-mark.webp" alt="" aria-hidden="true">
+        <div class="back-mark">Crafted Care Pediatrics</div>
+        <div class="flip-shade"></div>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <!-- Chapter 5 — About the founder -->
+  <section class="chapter" id="chapter-4" data-index="4" role="region" aria-roledescription="chapter" aria-label="Chapter 5: The Founder">
+    <div class="chapter-flip-inner">
+      <div class="chapter-face chapter-face-front" style="background:var(--paper);">
+        <div class="chapter-content">
+          <div class="bookmark-tag">Chapter Five</div>
+          <div class="pg-row">
+            <div class="pg-photo">real photograph, warm natural light, Krystyna Wesp with a family</div>
+            <div class="pg-col">
+              <h2 class="pg-h2" style="font-size:26px;">A mother and a pediatrician, building the practice she wished she had.</h2>
+              <blockquote class="pg-quote" style="margin:0 0 14px;">"I'm also a mother and a patient myself, and I believe the best care comes from a real relationship, built with the time to make one."</blockquote>
+              <div class="pg-cite" style="margin-bottom:14px;">Krystyna Wesp, Founder</div>
+              <p class="pg-body">She reads to patients in clinic and hand-crochets a hat for every newborn she welcomes, because care should feel personal, not procedural.</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-shade"></div>
+      </div>
+      <div class="chapter-face chapter-face-back">
+        <img src="assets/logo-mark.webp" alt="" aria-hidden="true">
+        <div class="back-mark">Crafted Care Pediatrics</div>
+        <div class="flip-shade"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter 6 — Final CTA + waitlist form -->
+  <section class="chapter" id="chapter-5" data-index="5" role="region" aria-roledescription="chapter" aria-label="Chapter 6: Join the Waitlist">
+    <div class="chapter-flip-inner">
+      <div class="chapter-face chapter-face-front" style="background:var(--sage-mist);">
+        <div class="chapter-content">
+          <div class="pg-row">
+            <div class="pg-col">
+              <div class="bookmark-tag">The Final Chapter</div>
+              <h2 class="pg-h2">Your child's first chapter starts here.</h2>
+              <p class="pg-lead">Crafted Care opens in December 2026 in North Fort Worth, TX. Join the waitlist today to be among the first families welcomed.</p>
+              <div class="final-footer">
+                <span>Crafted Care Pediatrics, North Fort Worth, TX</span>
+                <span>kwesp@craftedcarepeds.com</span>
+              </div>
+            </div>
+            <div class="cc-card" style="flex:1;min-width:300px;max-width:400px;">
+              <div class="cc-card-title" style="margin-bottom:14px;">Join the waitlist</div>
+              <form class="waitlist-form" id="waitlistForm">
+                <label for="wl-name">Parent name</label>
+                <input id="wl-name" name="parentName" type="text" placeholder="Parent name" required autocomplete="name">
+                <label for="wl-email">Email address</label>
+                <input id="wl-email" name="email" type="email" placeholder="Email address" required autocomplete="email">
+                <label for="wl-age">Child's age (or due date)</label>
+                <input id="wl-age" name="childAge" type="text" placeholder="Child's age (or due date)" required>
+                <button class="cc-btn-coral" type="submit" style="margin-top:4px;">Join the Waitlist</button>
+              </form>
+              <div id="waitlistSuccess" hidden>
+                <div class="cc-card-title" style="margin-bottom:8px;">You're on the list.</div>
+                <p class="pg-body">Thank you. We'll be in touch as we get closer to opening in December 2026.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flip-shade"></div>
+      </div>
+      <div class="chapter-face chapter-face-back">
+        <img src="assets/logo-mark.webp" alt="" aria-hidden="true">
+        <div class="back-mark">Crafted Care Pediatrics</div>
+        <div class="flip-shade"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<nav class="chapter-nav" aria-label="Chapter navigation">
+  <button class="nav-arrow" id="prevBtn" type="button" aria-label="Previous chapter"><span>←</span><span class="arrow-label">Previous</span></button>
+  <div class="chapter-progress">
+    <span class="chapter-status" id="chapterStatus">Chapter 1 of 6</span>
+    <div class="chapter-dots" id="chapterDots">
+      <button class="chapter-dot" type="button" data-index="0" aria-label="Go to Chapter 1: The Story Begins"></button>
+      <button class="chapter-dot" type="button" data-index="1" aria-label="Go to Chapter 2: What Your Family Gets"></button>
+      <button class="chapter-dot" type="button" data-index="2" aria-label="Go to Chapter 3: How It Works"></button>
+      <button class="chapter-dot" type="button" data-index="3" aria-label="Go to Chapter 4: Membership, Priced by Age"></button>
+      <button class="chapter-dot" type="button" data-index="4" aria-label="Go to Chapter 5: The Founder"></button>
+      <button class="chapter-dot" type="button" data-index="5" aria-label="Go to Chapter 6: Join the Waitlist"></button>
+    </div>
+  </div>
+  <button class="nav-arrow" id="nextBtn" type="button" aria-label="Next chapter"><span class="arrow-label">Next chapter</span><span>→</span></button>
+</nav>
 
 <script>
 (function(){
-  var els = document.querySelectorAll('.reveal');
-  if (!('IntersectionObserver' in window)) {
-    els.forEach(function(el){ el.classList.add('is-visible'); });
-  } else {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-    els.forEach(function(el){ io.observe(el); });
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('.chapter'));
+  var total = chapters.length;
+  var currentIndex = 0;
+  var isAnimating = false;
+  var FLIP_MS = 900;
+
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+  var statusEl = document.getElementById('chapterStatus');
+  var dots = Array.prototype.slice.call(document.querySelectorAll('.chapter-dot'));
+
+  function reduceMotion(){
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
 
-  var header = document.querySelector('[data-header]');
-  if (header) {
-    var onScroll = function(){
-      if (window.scrollY > 8) header.classList.add('is-scrolled');
-      else header.classList.remove('is-scrolled');
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+  function updateUI(){
+    statusEl.textContent = 'Chapter ' + (currentIndex + 1) + ' of ' + total;
+    dots.forEach(function(dot, i){
+      dot.classList.toggle('is-current', i === currentIndex);
+      dot.setAttribute('aria-current', i === currentIndex ? 'true' : 'false');
+    });
+    prevBtn.setAttribute('aria-disabled', currentIndex === 0 ? 'true' : 'false');
+    nextBtn.setAttribute('aria-disabled', currentIndex === total - 1 ? 'true' : 'false');
   }
+
+  function finish(newIndex, outgoing, incoming){
+    outgoing.classList.remove('is-flipping-out');
+    outgoing.style.transition = 'none';
+    outgoing.style.transform = 'none';
+    outgoing.style.opacity = '0';
+    outgoing.style.visibility = 'hidden';
+    outgoing.style.pointerEvents = 'none';
+    outgoing.style.zIndex = '0';
+    outgoing.setAttribute('aria-hidden', 'true');
+    outgoing.classList.remove('is-active');
+
+    incoming.classList.add('is-active');
+    incoming.style.zIndex = '2';
+    incoming.style.pointerEvents = 'auto';
+    incoming.setAttribute('aria-hidden', 'false');
+
+    currentIndex = newIndex;
+    isAnimating = false;
+    updateUI();
+  }
+
+  function goTo(newIndex){
+    if (newIndex < 0 || newIndex > total - 1) return;
+    if (newIndex === currentIndex || isAnimating) return;
+    isAnimating = true;
+
+    var forward = newIndex > currentIndex;
+    var outgoing = chapters[currentIndex];
+    var incoming = chapters[newIndex];
+
+    // Hard reset every chapter to a known baseline first. This is what keeps repeated
+    // forward/backward flips (and direct jumps) from ever leaving a stale z-index/opacity
+    // state behind on a chapter that isn't part of THIS transition.
+    chapters.forEach(function(ch){
+      ch.classList.remove('is-flipping-out');
+      var inner = ch.querySelector('.chapter-flip-inner');
+      inner.style.transition = 'none';
+      inner.style.transform = 'none';
+      if (ch !== outgoing && ch !== incoming){
+        ch.style.zIndex = '0';
+        ch.style.opacity = '0';
+        ch.style.visibility = 'hidden';
+        ch.style.pointerEvents = 'none';
+        ch.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    var outgoingInner = outgoing.querySelector('.chapter-flip-inner');
+    var incomingInner = incoming.querySelector('.chapter-flip-inner');
+
+    if (reduceMotion()){
+      // Respect prefers-reduced-motion: skip the 3D flip entirely, crossfade instead.
+      outgoing.style.zIndex = '2';
+      outgoing.style.opacity = '1';
+      outgoing.style.visibility = 'visible';
+      outgoing.style.pointerEvents = 'none';
+
+      incoming.style.zIndex = '3';
+      incoming.style.visibility = 'visible';
+      incoming.style.opacity = '0';
+      incoming.style.pointerEvents = 'none';
+      incoming.style.transition = 'none';
+      incoming.style.transform = 'none';
+
+      void incoming.offsetHeight;
+      incoming.style.transition = 'opacity .3s ease';
+      outgoing.style.transition = 'opacity .3s ease';
+
+      requestAnimationFrame(function(){
+        incoming.style.opacity = '1';
+        outgoing.style.opacity = '0';
+      });
+
+      var doneFade = function(e){
+        if (e.target !== incoming || e.propertyName !== 'opacity') return;
+        incoming.removeEventListener('transitionend', doneFade);
+        incoming.style.transition = 'none';
+        outgoing.style.transition = 'none';
+        finish(newIndex, outgoing, incoming);
+      };
+      incoming.addEventListener('transitionend', doneFade);
+      return;
+    }
+
+    // Real 3D page-turn path.
+    outgoingInner.style.transformOrigin = forward ? 'right center' : 'left center';
+    outgoing.style.zIndex = '3';
+    outgoing.style.opacity = '1';
+    outgoing.style.visibility = 'visible';
+    outgoing.style.pointerEvents = 'none';
+    outgoing.classList.add('is-flipping-out');
+
+    incoming.style.zIndex = '1';
+    incoming.style.opacity = '1';
+    incoming.style.visibility = 'visible';
+    incoming.style.pointerEvents = 'none';
+    incomingInner.style.transform = 'none';
+    incoming.setAttribute('aria-hidden', 'false');
+
+    // Force reflow so the transition below animates from rotateY(0) rather than jumping.
+    void outgoingInner.offsetHeight;
+
+    outgoingInner.style.transition = 'transform ' + FLIP_MS + 'ms var(--flip-ease)';
+
+    requestAnimationFrame(function(){
+      // 179.9deg (not a flat 180) avoids a backface-visibility flicker some browsers show at
+      // the exact boundary value.
+      outgoingInner.style.transform = forward ? 'rotateY(-179.9deg)' : 'rotateY(179.9deg)';
+    });
+
+    var done = function(e){
+      if (e.target !== outgoingInner || e.propertyName !== 'transform') return;
+      outgoingInner.removeEventListener('transitionend', done);
+      finish(newIndex, outgoing, incoming);
+    };
+    outgoingInner.addEventListener('transitionend', done);
+  }
+
+  prevBtn.addEventListener('click', function(){ goTo(currentIndex - 1); });
+  nextBtn.addEventListener('click', function(){ goTo(currentIndex + 1); });
+  dots.forEach(function(dot){
+    dot.addEventListener('click', function(){
+      goTo(parseInt(dot.getAttribute('data-index'), 10));
+    });
+  });
+  document.getElementById('headerWaitlistBtn').addEventListener('click', function(){ goTo(total - 1); });
+  document.querySelectorAll('[data-jump]').forEach(function(btn){
+    btn.addEventListener('click', function(){ goTo(parseInt(btn.getAttribute('data-jump'), 10)); });
+  });
+
+  document.addEventListener('keydown', function(e){
+    var tag = (document.activeElement && document.activeElement.tagName) || '';
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+    if (e.key === 'ArrowRight') { goTo(currentIndex + 1); }
+    else if (e.key === 'ArrowLeft') { goTo(currentIndex - 1); }
+  });
+
+  var waitlistForm = document.getElementById('waitlistForm');
+  var waitlistSuccess = document.getElementById('waitlistSuccess');
+  waitlistForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    waitlistForm.hidden = true;
+    waitlistSuccess.hidden = false;
+  });
+
+  // Initial baseline: chapter 0 is already .is-active in markup.
+  chapters.forEach(function(ch, i){
+    ch.setAttribute('aria-hidden', i === 0 ? 'false' : 'true');
+  });
+  updateUI();
 })();
 </script>
 </body>

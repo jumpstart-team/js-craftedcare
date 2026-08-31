@@ -45,7 +45,8 @@
   .cc-card{background:var(--paper);border:1px solid var(--border-hairline);border-radius:14px;position:relative;overflow:hidden;box-shadow:7px 8px 0 0 var(--sage-mist),14px 16px 0 0 var(--border-hairline),0 4px 18px rgba(43,47,38,0.10);padding:24px;transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
   .cc-card:hover{transform:translateY(-5px);box-shadow:7px 8px 0 0 var(--sage-mist),14px 16px 0 0 var(--border-hairline),0 16px 32px rgba(43,47,38,0.16);}
   .cc-card::after{content:'';position:absolute;top:0;right:0;width:0;height:0;border-style:solid;border-width:0 22px 22px 0;border-color:transparent var(--sage-mist) transparent transparent;}
-  .cc-stitch{border-top:2px dashed var(--border-hairline);padding-top:14px;}
+  .cc-stitch{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='14' viewBox='0 0 24 14'%3E%3Cpath d='M0 7C4 0 8 0 12 7C16 14 20 14 24 7' fill='none' stroke='%23D9CDBB' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:repeat-x;background-size:24px 14px;background-position:top left;padding-top:22px;}
+  .yarn-icon{width:34px;height:34px;flex-shrink:0;}
   .cc-card-title{font-family:var(--font-serif);font-size:19px;color:var(--ink);margin:0 0 6px;}
 
   .step-num{display:inline-block;font-family:var(--font-serif);font-size:28px;color:var(--sage);margin-bottom:8px;transition:transform .3s var(--ease),color .3s ease;}
@@ -242,7 +243,10 @@
         <div class="cc-h2" style="font-size:26px; margin-bottom:16px;">A mother and a pediatrician, building the practice she wished she had.</div>
         <blockquote style="font-family:var(--font-serif); font-style:italic; font-size:20px; line-height:1.5; color:var(--deep-sage); margin:0 0 14px;">"I'm also a mother and a patient myself, and I believe the best care comes from a real relationship, built with the time to make one."</blockquote>
         <div style="font-family:var(--font-sans); font-weight:600; font-size:15px; color:var(--text-muted); margin-bottom:14px;">Krystyna Wesp, Founder</div>
-        <p class="cc-body">She reads to patients in clinic and hand-crochets a hat for every newborn she welcomes, because care should feel personal, not procedural.</p>
+        <div style="display:flex; align-items:flex-start; gap:12px;">
+          <svg class="yarn-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="15" stroke="var(--sage)" stroke-width="1.6"/><path d="M6 15C13 19 27 19 34 15" stroke="var(--sage)" stroke-width="1.6"/><path d="M5 23C13 17 27 24 35 19" stroke="var(--sage)" stroke-width="1.6"/><path d="M9 29C15 23 25 23 31 29" stroke="var(--sage)" stroke-width="1.6"/><path d="M20 5C25 12 25 28 20 35" stroke="var(--sage)" stroke-width="1.6"/></svg>
+          <p class="cc-body" style="margin:0;">She reads to patients in clinic and hand-crochets a hat for every newborn she welcomes, because care should feel personal, not procedural.</p>
+        </div>
       </div>
     </div>
   </div>

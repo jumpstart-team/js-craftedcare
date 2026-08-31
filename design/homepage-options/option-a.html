@@ -103,13 +103,27 @@
   }
   @media (max-width:900px){
     .cc-row{flex-direction:column;}
-    .benefits-grid{grid-template-columns:1fr 1fr;}
   }
-  @media (max-width:600px){
-    .benefits-grid{grid-template-columns:1fr;}
-  }
-  .benefits-grid{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:20px;}
   .cc-row{display:flex;gap:48px;}
+
+  /* ---------- normal-site body: list + timeline + info-panel, distinct from the card-grid layouts elsewhere ---------- */
+  .info-panel{background:var(--sage-mist);border-radius:14px;padding:28px 26px;}
+
+  .benefits-list{display:grid;grid-template-columns:1fr 1fr;column-gap:56px;}
+  .benefit-row{display:flex;gap:18px;align-items:flex-start;padding:22px 0;border-top:1px solid var(--border-hairline);}
+  .benefits-list>.benefit-row:nth-child(5),
+  .benefits-list>.benefit-row:nth-child(6){border-bottom:1px solid var(--border-hairline);}
+  .benefit-num{width:38px;height:38px;flex-shrink:0;border-radius:50%;background:var(--paper);border:1.5px solid var(--sage);color:var(--deep-sage);font-family:var(--font-serif);font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;}
+  @media (max-width:760px){
+    .benefits-list{grid-template-columns:1fr;}
+    .benefits-list>.benefit-row{border-bottom:1px solid var(--border-hairline) !important;}
+  }
+
+  .timeline-item{position:relative;padding-left:64px;padding-bottom:44px;}
+  .timeline-item:last-child{padding-bottom:0;}
+  .timeline-item::before{content:'';position:absolute;left:19px;top:44px;bottom:-6px;width:2px;background:var(--border-hairline);}
+  .timeline-item:last-child::before{display:none;}
+  .timeline-num{position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--paper);border:2px solid var(--sage);color:var(--deep-sage);font-family:var(--font-serif);font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;}
 </style>
 </head>
 <body>
@@ -152,60 +166,66 @@
 
   <!-- What your family gets -->
   <div style="max-width:1328px; margin:0 auto; padding:88px 56px;">
-    <div class="reveal" style="text-align:center; margin-bottom:40px;">
-      <div class="bookmark-tag">Chapter Two</div>
+    <div class="reveal" style="margin-bottom:40px;">
+      <div class="cc-eyebrow" style="margin-bottom:10px;">The essentials</div>
       <div class="cc-h2">What your family gets</div>
     </div>
-    <div class="benefits-grid">
-      <div class="cc-card reveal" style="--d:0ms;"><div class="cc-stitch">
-        <div class="cc-card-title">Whole-child care</div>
-        <p class="cc-body">Birth through the teenage years, with one pediatrician who knows your family.</p>
-      </div></div>
-      <div class="cc-card reveal" style="--d:60ms;"><div class="cc-stitch">
-        <div class="cc-card-title">Unhurried visits</div>
-        <p class="cc-body">Longer appointments built for real questions, not the next patient in line.</p>
-      </div></div>
-      <div class="cc-card reveal" style="--d:120ms;"><div class="cc-stitch">
-        <div class="cc-card-title">Direct access</div>
-        <p class="cc-body">Reach Krystyna directly when something comes up, not a call center.</p>
-      </div></div>
-      <div class="cc-card reveal" style="--d:0ms;"><div class="cc-stitch">
-        <div class="cc-card-title"><span class="term-tip" tabindex="0">OMM<span class="term-tip-bubble">Osteopathic manipulative medicine &mdash; a gentle, hands-on approach that supports your child's natural healing, offered at every well visit.</span></span></div>
-        <p class="cc-body">Osteopathic manipulative medicine, offered at every well visit.</p>
-      </div></div>
-      <div class="cc-card reveal" style="--d:60ms;"><div class="cc-stitch">
-        <div class="cc-card-title">Home visits</div>
-        <p class="cc-body">Birth to 2 months, at your house, not ours.</p>
-      </div></div>
-      <div class="cc-card reveal" style="--d:120ms;"><div class="cc-stitch">
-        <div class="cc-card-title">Behavioral health</div>
-        <p class="cc-body">Support for the whole child, not just physical checkups.</p>
-      </div></div>
+    <div class="benefits-list">
+      <div class="benefit-row reveal" style="--d:0ms;">
+        <div class="benefit-num">1</div>
+        <div><div class="cc-card-title">Whole-child care</div>
+        <p class="cc-body" style="margin:0;">Birth through the teenage years, with one pediatrician who knows your family.</p></div>
+      </div>
+      <div class="benefit-row reveal" style="--d:40ms;">
+        <div class="benefit-num">2</div>
+        <div><div class="cc-card-title">Unhurried visits</div>
+        <p class="cc-body" style="margin:0;">Longer appointments built for real questions, not the next patient in line.</p></div>
+      </div>
+      <div class="benefit-row reveal" style="--d:0ms;">
+        <div class="benefit-num">3</div>
+        <div><div class="cc-card-title">Direct access</div>
+        <p class="cc-body" style="margin:0;">Reach Krystyna directly when something comes up, not a call center.</p></div>
+      </div>
+      <div class="benefit-row reveal" style="--d:40ms;">
+        <div class="benefit-num">4</div>
+        <div><div class="cc-card-title"><span class="term-tip" tabindex="0">OMM<span class="term-tip-bubble">Osteopathic manipulative medicine &mdash; a gentle, hands-on approach that supports your child's natural healing, offered at every well visit.</span></span></div>
+        <p class="cc-body" style="margin:0;">Osteopathic manipulative medicine, offered at every well visit.</p></div>
+      </div>
+      <div class="benefit-row reveal" style="--d:0ms;">
+        <div class="benefit-num">5</div>
+        <div><div class="cc-card-title">Home visits</div>
+        <p class="cc-body" style="margin:0;">Birth to 2 months, at your house, not ours.</p></div>
+      </div>
+      <div class="benefit-row reveal" style="--d:40ms;">
+        <div class="benefit-num">6</div>
+        <div><div class="cc-card-title">Behavioral health</div>
+        <p class="cc-body" style="margin:0;">Support for the whole child, not just physical checkups.</p></div>
+      </div>
     </div>
   </div>
 
   <!-- How it works -->
   <div style="background:var(--sage-mist); padding:88px 56px;">
-    <div style="max-width:1328px; margin:0 auto;">
+    <div style="max-width:760px; margin:0 auto;">
       <div class="reveal" style="margin-bottom:40px;">
-        <div class="bookmark-tag">Chapter Three</div>
+        <div class="cc-eyebrow" style="margin-bottom:10px;">Getting started</div>
         <div class="cc-h2">How it works</div>
       </div>
-      <div class="cc-row" style="flex-wrap:wrap;">
-        <div class="step reveal" style="flex:1; min-width:220px; --d:0ms;">
-          <div class="step-num">1</div>
+      <div>
+        <div class="timeline-item reveal" style="--d:0ms;">
+          <div class="timeline-num">1</div>
           <div class="step-title">Join the waitlist</div>
-          <p class="cc-body">Tell us about your family so we can reach out as we get closer to opening.</p>
+          <p class="cc-body" style="margin:0;">Tell us about your family so we can reach out as we get closer to opening.</p>
         </div>
-        <div class="step reveal" style="flex:1; min-width:220px; --d:90ms;">
-          <div class="step-num">2</div>
+        <div class="timeline-item reveal" style="--d:90ms;">
+          <div class="timeline-num">2</div>
           <div class="step-title">Meet Krystyna</div>
-          <p class="cc-body">Once we open, schedule a meet and greet to see if Crafted Care is the right fit.</p>
+          <p class="cc-body" style="margin:0;">Once we open, schedule a meet and greet to see if Crafted Care is the right fit.</p>
         </div>
-        <div class="step reveal" style="flex:1; min-width:220px; --d:180ms;">
-          <div class="step-num">3</div>
+        <div class="timeline-item reveal" style="--d:180ms;">
+          <div class="timeline-num">3</div>
           <div class="step-title">Start whole-child care</div>
-          <p class="cc-body">Choose your membership and start unhurried, direct access pediatric care.</p>
+          <p class="cc-body" style="margin:0;">Choose your membership and start unhurried, direct access pediatric care.</p>
         </div>
       </div>
     </div>
@@ -213,15 +233,13 @@
 
   <!-- Membership / pricing signal -->
   <div style="max-width:1328px; margin:0 auto; padding:88px 56px;">
-    <div class="reveal" style="margin-bottom:8px;">
-      <div class="bookmark-tag">Chapter Four</div>
-    </div>
     <div class="cc-row reveal" style="flex-wrap:wrap; align-items:center; gap:48px;">
       <div style="flex:1; min-width:300px;">
+        <div class="cc-eyebrow" style="margin-bottom:10px;">Membership</div>
         <div class="cc-h2" style="margin-bottom:16px;">Simple membership, priced by age.</div>
         <p class="cc-body">Monthly and annual plans, priced by your child's age. Families with more than one kid aren't stuck paying one flat rate. Exact pricing is shared with waitlist families well before you have to decide anything, and there are no surprise per-visit bills once you're a member.</p>
       </div>
-      <div class="cc-card" style="flex:1; min-width:280px; max-width:400px;">
+      <div class="info-panel" style="flex:1; min-width:280px; max-width:400px;">
         <div class="cc-card-title" style="margin-bottom:14px;">What's included</div>
         <div style="display:flex; flex-direction:column; gap:10px;">
           <span class="cc-body">Unhurried, direct access primary care</span>
@@ -237,9 +255,8 @@
   <!-- About the founder -->
   <div style="background:var(--cream); padding:88px 56px;">
     <div class="cc-row reveal" style="max-width:1328px; margin:0 auto; flex-wrap:wrap; align-items:center; gap:48px;">
-      <div class="hero-photo" style="flex:1; min-width:280px; max-width:420px; min-height:300px;">real photograph, warm natural light, Krystyna Wesp with a family</div>
       <div style="flex:1; min-width:300px;">
-        <div class="bookmark-tag">Chapter Five</div>
+        <div class="cc-eyebrow" style="margin-bottom:10px;">About</div>
         <div class="cc-h2" style="font-size:26px; margin-bottom:16px;">A mother and a pediatrician, building the practice she wished she had.</div>
         <blockquote style="font-family:var(--font-serif); font-style:italic; font-size:20px; line-height:1.5; color:var(--deep-sage); margin:0 0 14px;">"I'm also a mother and a patient myself, and I believe the best care comes from a real relationship, built with the time to make one."</blockquote>
         <div style="font-family:var(--font-sans); font-weight:600; font-size:15px; color:var(--text-muted); margin-bottom:14px;">Krystyna Wesp, Founder</div>
@@ -248,6 +265,7 @@
           <p class="cc-body" style="margin:0;">She reads to patients in clinic and hand-crochets a hat for every newborn she welcomes, because care should feel personal, not procedural.</p>
         </div>
       </div>
+      <div class="hero-photo" style="flex:1; min-width:280px; max-width:420px; min-height:300px;">real photograph, warm natural light, Krystyna Wesp with a family</div>
     </div>
   </div>
 
@@ -255,7 +273,7 @@
   <div id="waitlist" style="max-width:1328px; margin:0 auto; padding:88px 56px;">
     <div class="cc-row reveal" style="flex-wrap:wrap; align-items:center; justify-content:space-between; gap:48px;">
       <div style="max-width:480px;">
-        <div class="bookmark-tag">The Final Chapter</div>
+        <div class="cc-eyebrow" style="margin-bottom:10px;">Join us</div>
         <div class="cc-h2" style="margin-bottom:12px;">Your child's first chapter starts here.</div>
         <p class="hero-lead" style="margin-bottom:24px;">Crafted Care opens in December 2026 in North Fort Worth, TX. Join the waitlist today to be among the first families welcomed.</p>
         <div style="display:flex; flex-direction:column; gap:4px; font-size:15px; color:var(--text-muted);">

@@ -39,6 +39,10 @@
   .nav-link:hover,.nav-link.active{color:var(--deep-coral);}
   .nav-link:hover::after,.nav-link.active::after{transform:scaleX(1);}
   .nav-cta{background:var(--ink);color:var(--paper);font-weight:700;font-size:16px;padding:12px 24px;border-radius:999px;transition:transform .25s var(--ease),background-color .25s ease;display:inline-block;}
+  .term-tip{position:relative;border-bottom:1px dotted currentColor;cursor:help;}
+  .term-tip .term-tip-bubble{position:absolute;left:0;top:calc(100% + 10px);transform:translateY(-4px);width:210px;background:var(--ink);color:var(--paper);font-family:var(--font-sans);font-size:13px;line-height:1.5;font-weight:400;text-transform:none;letter-spacing:normal;padding:10px 12px;border-radius:8px;opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease;pointer-events:none;z-index:30;box-shadow:0 8px 20px rgba(24,27,18,0.3);text-align:left;}
+  .term-tip .term-tip-bubble::after{content:'';position:absolute;bottom:100%;left:16px;border:6px solid transparent;border-bottom-color:var(--ink);}
+  .term-tip:hover .term-tip-bubble,.term-tip:focus-visible .term-tip-bubble{opacity:1;visibility:visible;transform:translateY(0);}
   .nav-cta:hover{background:var(--deep-coral);transform:translateY(-2px);}
 
   /* ---------- hero ---------- */
@@ -316,7 +320,7 @@
       </div>
       <div class="bcard bcard-coral b3">
         <svg class="b-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.35-9.5-8.5C.8 8 2.3 4.5 6 4c2.1-.3 3.7.9 6 3.5C14.3 4.9 15.9 3.7 18 4c3.7.5 5.2 4 3.5 7.5C19 15.65 12 20 12 20z"></path></svg>
-        <div class="b-title">OMM</div>
+        <div class="b-title"><span class="term-tip" tabindex="0">OMM<span class="term-tip-bubble">Osteopathic manipulative medicine &mdash; a gentle, hands-on approach that supports your child's natural healing, offered at every well visit.</span></span></div>
         <div class="b-body">Osteopathic manipulative medicine, offered at every well visit.</div>
       </div>
       <div class="bcard bcard-light b4">

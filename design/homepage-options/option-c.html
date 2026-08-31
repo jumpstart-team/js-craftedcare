@@ -36,6 +36,10 @@
   .cc-stitch{border-top:2px dashed var(--border-hairline);padding-top:14px;}
   .cc-h2{font-family:var(--font-serif);font-weight:700;font-size:30px;color:var(--ink);margin:0;}
   .cc-eyebrow{font-family:var(--font-sans);font-weight:600;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--deep-sage);}
+  .term-tip{position:relative;border-bottom:1px dotted currentColor;cursor:help;}
+  .term-tip .term-tip-bubble{position:absolute;left:0;top:calc(100% + 10px);transform:translateY(-4px);width:210px;background:var(--ink);color:var(--paper);font-family:var(--font-sans);font-size:13px;line-height:1.5;font-weight:400;text-transform:none;letter-spacing:normal;padding:10px 12px;border-radius:8px;opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease;pointer-events:none;z-index:30;box-shadow:0 8px 20px rgba(43,47,38,0.25);text-align:left;}
+  .term-tip .term-tip-bubble::after{content:'';position:absolute;bottom:100%;left:16px;border:6px solid transparent;border-bottom-color:var(--ink);}
+  .term-tip:hover .term-tip-bubble,.term-tip:focus-visible .term-tip-bubble{opacity:1;visibility:visible;transform:translateY(0);}
   .cc-body{font-family:var(--font-sans);font-size:15.5px;line-height:1.6;color:var(--text-muted);}
   .bookmark-tag{position:relative;display:inline-flex;align-items:flex-start;justify-content:center;padding:11px 26px 20px;background:var(--sage);color:var(--paper);font-family:var(--font-sans);font-weight:700;font-size:15px;letter-spacing:0.06em;text-transform:uppercase;clip-path:polygon(0 0,100% 0,100% 82%,50% 100%,0 82%);margin-bottom:18px;filter:drop-shadow(0 4px 8px rgba(43,47,38,0.16));}
   .book-illustration{display:inline-block;height:44px;width:auto;margin:6px 0 16px;}
@@ -378,7 +382,7 @@ m3102 0 c89 -6 181 -15 206 -20 24 -6 90 -15 146 -20 199 -19 637 -112 911
         <div class="cc-body">Reach Krystyna directly when a question comes up, not a call center.</div>
       </div></div>
       <div class="cc-card reveal" style="--d:180ms;"><div class="cc-bookmark"></div><div class="cc-stitch">
-        <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;">OMM</div>
+        <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;"><span class="term-tip" tabindex="0">OMM<span class="term-tip-bubble">Osteopathic manipulative medicine &mdash; a gentle, hands-on approach that supports your child's natural healing, offered at every well visit.</span></span></div>
         <div class="cc-body">Osteopathic manipulative medicine, offered at every well visit.</div>
       </div></div>
       <div class="cc-card reveal" style="--d:240ms;"><div class="cc-bookmark"></div><div class="cc-stitch">
@@ -578,7 +582,7 @@ m3102 0 c89 -6 181 -15 206 -20 24 -6 90 -15 146 -20 199 -19 637 -112 911
         <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:14px;">What's included</div>
         <div class="cc-body" style="display:flex; flex-direction:column; gap:10px;">
           <span>Unhurried, direct access primary care</span>
-          <span>OMM at every well visit</span>
+          <span><span class="term-tip" tabindex="0">OMM<span class="term-tip-bubble">Osteopathic manipulative medicine &mdash; a gentle, hands-on approach that supports your child's natural healing, offered at every well visit.</span></span> at every well visit</span>
           <span>Behavioral and whole-child support</span>
           <span>Home visits, birth to 2 months</span>
           <span>Age-banded monthly or annual billing</span>
@@ -803,7 +807,7 @@ m3102 0 c89 -6 181 -15 206 -20 24 -6 90 -15 146 -20 199 -19 637 -112 911
       </div>
       <div class="faq-item">
         <button class="faq-q-row" aria-expanded="false">
-          <span class="cc-faq-q" style="margin-bottom:0;">What is OMM, and is it included?</span>
+          <span class="cc-faq-q" style="margin-bottom:0;">What is <span class="term-tip" tabindex="0">OMM<span class="term-tip-bubble">Osteopathic manipulative medicine &mdash; a gentle, hands-on approach that supports your child's natural healing, offered at every well visit.</span></span>, and is it included?</span>
           <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M4 8l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="faq-a-wrap"><div class="faq-a-inner">

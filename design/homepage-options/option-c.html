@@ -27,6 +27,8 @@
   .nav-link.active{color:var(--deep-sage);}
   .logo-mark{transition:transform .3s var(--ease);}
   .logo-lockup:hover .logo-mark{transform:rotate(-4deg) scale(1.05);}
+  .nav-cta{display:inline-flex;align-items:center;background:var(--coral);color:var(--paper);font-weight:700;font-size:15px;padding:10px 22px;border-radius:999px;transition:transform .25s var(--ease),background-color .25s ease,box-shadow .25s var(--ease);}
+  .nav-cta:hover{background:var(--deep-coral);color:var(--paper);transform:translateY(-2px);box-shadow:0 10px 20px rgba(240,135,108,0.35);}
 
   .cc-card{background:var(--paper);border:1px solid var(--border-hairline);border-radius:14px;position:relative;overflow:hidden;box-shadow:7px 8px 0 0 var(--sage-mist),14px 16px 0 0 var(--border-hairline),0 4px 18px rgba(43,47,38,0.10);padding:22px;transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
   .cc-card:hover{transform:translateY(-5px);box-shadow:7px 8px 0 0 var(--sage-mist),14px 16px 0 0 var(--border-hairline),0 16px 32px rgba(43,47,38,0.16);}
@@ -34,7 +36,6 @@
   .cc-card .cc-bookmark{position:absolute;top:0;right:26px;width:20px;height:36px;background:var(--coral);clip-path:polygon(0 0,100% 0,100% 78%,50% 100%,0 78%);transform:translateY(-100%);transition:transform .4s var(--ease);z-index:2;box-shadow:0 3px 6px rgba(43,47,38,0.18);}
   .cc-card:hover .cc-bookmark{transform:translateY(0);}
   .cc-stitch{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='14' viewBox='0 0 24 14'%3E%3Cpath d='M0 7C4 0 8 0 12 7C16 14 20 14 24 7' fill='none' stroke='%23D9CDBB' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:repeat-x;background-size:24px 14px;background-position:top left;padding-top:22px;}
-  .yarn-icon{width:34px;height:34px;flex-shrink:0;}
   .cc-h2{font-family:var(--font-serif);font-weight:700;font-size:30px;color:var(--ink);margin:0;}
   .cc-eyebrow{font-family:var(--font-sans);font-weight:600;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--deep-sage);}
   .term-tip{position:relative;border-bottom:1px dotted currentColor;cursor:help;}
@@ -106,7 +107,7 @@
       <span class="nav-link active">Home</span>
       <span class="nav-link" style="color:var(--ink);">About</span>
       <span class="nav-link" style="color:var(--ink);">Services</span>
-      <a href="#waitlist" class="nav-link" style="color:var(--ink);">Join</a>
+      <a href="#waitlist" class="nav-cta">Join the Waitlist</a>
     </div>
   </div>
 
@@ -283,7 +284,7 @@ m3102 0 c89 -6 181 -15 206 -20 24 -6 90 -15 146 -20 199 -19 637 -112 911
 199 51 231 56 20 3 72 12 115 20 361 69 828 89 1301 56z"/></g></svg>
       <div class="cc-eyebrow" style="margin-bottom:10px;">The practice</div>
       <div class="cc-h2" style="margin-bottom:16px;">A pediatric practice built around time, not volume.</div>
-      <div class="cc-body" style="font-size:16.5px;">Crafted Care is a membership pediatric practice. Instead of billing insurance for every visit, families pay a simple monthly or annual membership for direct access to Krystyna Wesp, longer appointments, and a relationship that grows with your child from their first weeks through their teenage years.</div>
+      <div class="cc-body" style="font-size:16.5px;">Crafted Care is a membership pediatric practice. Instead of billing insurance for every visit, families pay a simple monthly or annual membership for direct access to Dr. Wesp, longer appointments, and a relationship that grows with your child from their first weeks through their teenage years.</div>
     </div>
   </div>
 
@@ -380,11 +381,11 @@ m3102 0 c89 -6 181 -15 206 -20 24 -6 90 -15 146 -20 199 -19 637 -112 911
       </div></div>
       <div class="cc-card reveal" style="--d:120ms;"><div class="cc-bookmark"></div><div class="cc-stitch">
         <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;">Direct access</div>
-        <div class="cc-body">Reach Krystyna directly when a question comes up, not a call center.</div>
+        <div class="cc-body">Reach Dr. Wesp directly when a question comes up, not a call center.</div>
       </div></div>
       <div class="cc-card reveal" style="--d:180ms;"><div class="cc-bookmark"></div><div class="cc-stitch">
-        <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;"><span class="term-tip" tabindex="0">OMM<span class="term-tip-bubble">Osteopathic manipulative medicine &mdash; a gentle, hands-on approach that supports your child's natural healing, offered at every well visit.</span></span></div>
-        <div class="cc-body">Osteopathic manipulative medicine, offered at every well visit.</div>
+        <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;">Same-day &amp; next-day availability</div>
+        <div class="cc-body">When something comes up, you're not waiting weeks for an appointment.</div>
       </div></div>
       <div class="cc-card reveal" style="--d:240ms;"><div class="cc-bookmark"></div><div class="cc-stitch">
         <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:8px;">Home visits</div>
@@ -485,7 +486,7 @@ m3102 0 c89 -6 181 -15 206 -20 24 -6 90 -15 146 -20 199 -19 637 -112 911
         </div>
         <div class="step reveal" style="--d:110ms; flex:1; min-width:220px;">
           <div class="step-num" style="font-family:var(--font-serif); font-size:30px; color:var(--sage); margin-bottom:8px;">2</div>
-          <div style="font-family:var(--font-serif); font-size:18px; color:var(--ink); margin-bottom:8px;">Meet Krystyna</div>
+          <div style="font-family:var(--font-serif); font-size:18px; color:var(--ink); margin-bottom:8px;">Meet Dr. Wesp</div>
           <div class="cc-body">Once we open, schedule a meet and greet to see if Crafted Care is the right fit.</div>
         </div>
         <div class="step reveal" style="--d:220ms; flex:1; min-width:220px;">
@@ -577,17 +578,16 @@ m3102 0 c89 -6 181 -15 206 -20 24 -6 90 -15 146 -20 199 -19 637 -112 911
 199 51 231 56 20 3 72 12 115 20 361 69 828 89 1301 56z"/></g></svg>
         <div class="cc-eyebrow" style="margin-bottom:10px;">Membership</div>
         <div class="cc-h2" style="margin-bottom:16px;">Simple membership, priced by age.</div>
-        <div class="cc-body" style="font-size:16.5px;">Monthly and annual plans, priced by your child's age, so families with more than one kid aren't paying one flat rate. Exact pricing is shared with waitlist families well before you have to decide anything, and there are no surprise per-visit bills once you're a member.</div>
+        <div class="cc-body" style="font-size:16.5px;">Monthly and annual plans, priced by your child's age, so families with more than one kid aren't paying one flat rate. There are no surprise per-visit bills once you're a member.</div>
       </div>
       <div class="cc-card" style="flex:1; min-width:280px; max-width:400px;"><div class="cc-bookmark"></div>
-        <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:14px;">What's included</div>
+        <div style="font-family:var(--font-serif); font-size:19px; color:var(--ink); margin-bottom:14px;">Membership pricing</div>
         <div class="cc-body" style="display:flex; flex-direction:column; gap:10px;">
-          <span>Unhurried, direct access primary care</span>
-          <span><span class="term-tip" tabindex="0">OMM<span class="term-tip-bubble">Osteopathic manipulative medicine &mdash; a gentle, hands-on approach that supports your child's natural healing, offered at every well visit.</span></span> at every well visit</span>
-          <span>Behavioral and whole-child support</span>
-          <span>Home visits, birth to 2 months</span>
-          <span>Age-banded monthly or annual billing</span>
+          <span><strong>Birth&ndash;2 years:</strong> $200/month</span>
+          <span><strong>2&ndash;6 years:</strong> $175/month</span>
+          <span><strong>6&ndash;21 years:</strong> $150/month</span>
         </div>
+        <div class="cc-body" style="margin-top:14px;">Monthly or annual billing. Have more than one child? Contact the clinic to ask about family discounts.</div>
       </div>
     </div>
   </div>
@@ -596,7 +596,7 @@ m3102 0 c89 -6 181 -15 206 -20 24 -6 90 -15 146 -20 199 -19 637 -112 911
   <div style="background:var(--cream); padding:64px 56px;">
     <div class="cc-row reveal" style="max-width:1328px; margin:0 auto; display:flex; gap:48px; align-items:center; flex-wrap:wrap;">
       <div class="cc-photo" style="flex:1; min-width:260px; background:var(--paper); border-radius:14px; min-height:260px; display:flex; align-items:center; justify-content:center; padding:24px;">
-        <span style="font-size:13px; color:var(--text-muted); text-align:center;">real photograph, Krystyna Wesp</span>
+        <span style="font-size:13px; color:var(--text-muted); text-align:center;">real photograph, Dr. Wesp</span>
       </div>
       <div style="flex:1; min-width:320px;">
         <div class="bookmark-tag"><span>Chapter Six</span></div>
@@ -675,11 +675,7 @@ m3102 0 c89 -6 181 -15 206 -20 24 -6 90 -15 146 -20 199 -19 637 -112 911
 199 51 231 56 20 3 72 12 115 20 361 69 828 89 1301 56z"/></g></svg>
         <div class="cc-eyebrow" style="margin-bottom:10px;">About</div>
         <div class="cc-h2" style="font-size:26px; margin-bottom:16px;">A mother and a pediatrician, building the practice she wished she had.</div>
-        <div class="cc-body" style="margin-bottom:12px; font-size:16px;">Krystyna Wesp is a mother first. She built Crafted Care for more time with every family: to answer every question, know your child's story, and be a real partner as your family grows.</div>
-        <div style="display:flex; align-items:flex-start; gap:12px;">
-          <svg class="yarn-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="15" stroke="var(--sage)" stroke-width="1.6"/><path d="M6 15C13 19 27 19 34 15" stroke="var(--sage)" stroke-width="1.6"/><path d="M5 23C13 17 27 24 35 19" stroke="var(--sage)" stroke-width="1.6"/><path d="M9 29C15 23 25 23 31 29" stroke="var(--sage)" stroke-width="1.6"/><path d="M20 5C25 12 25 28 20 35" stroke="var(--sage)" stroke-width="1.6"/></svg>
-          <div class="cc-body" style="font-size:16px;">She reads to patients in clinic and hand-crochets a hat for every newborn she welcomes, because care should feel personal, not procedural.</div>
-        </div>
+        <div class="cc-body" style="font-size:16px;">Dr. Wesp is a mother first. She built Crafted Care for more time with every family: to answer every question, know your child's story, and be a real partner as your family grows.</div>
       </div>
     </div>
   </div>
@@ -806,16 +802,25 @@ m3102 0 c89 -6 181 -15 206 -20 24 -6 90 -15 146 -20 199 -19 637 -112 911
           <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M4 8l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="faq-a-wrap"><div class="faq-a-inner">
-          <div class="cc-body">Yes. For babies birth to 2 months, Krystyna comes to you instead of asking a new family to pack up for the office.</div>
+          <div class="cc-body">Yes. For babies birth to 2 months, Dr. Wesp comes to you instead of asking a new family to pack up for the office.</div>
         </div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q-row" aria-expanded="false">
-          <span class="cc-faq-q" style="margin-bottom:0;">What is <span class="term-tip" tabindex="0">OMM<span class="term-tip-bubble">Osteopathic manipulative medicine &mdash; a gentle, hands-on approach that supports your child's natural healing, offered at every well visit.</span></span>, and is it included?</span>
+          <span class="cc-faq-q" style="margin-bottom:0;">What is <span class="term-tip" tabindex="0">OMM<span class="term-tip-bubble">Osteopathic manipulative medicine &mdash; a gentle, hands-on approach that supports your child's natural healing.</span></span>?</span>
           <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M4 8l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="faq-a-wrap"><div class="faq-a-inner">
-          <div class="cc-body">Osteopathic manipulative medicine is a gentle, hands-on approach offered at every well visit at no extra cost.</div>
+          <div class="cc-body">Osteopathic manipulative medicine is a gentle, hands-on treatment Dr. Wesp can offer for specific concerns, such as a teenager with back pain. It's not a routine part of every visit, but it's available when it's the right fit for your child.</div>
+        </div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q-row" aria-expanded="false">
+          <span class="cc-faq-q" style="margin-bottom:0;">Do you offer vaccines?</span>
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M4 8l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-a-wrap"><div class="faq-a-inner">
+          <div class="cc-body">Vaccination is required for all Crafted Care patients. Vaccines can be given in clinic, with the cost billed directly to your insurance, or coordinated through the health department for families without insurance.</div>
         </div></div>
       </div>
       <div class="faq-item">

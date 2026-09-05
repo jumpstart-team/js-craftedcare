@@ -39,10 +39,6 @@
   .nav-link:hover,.nav-link.active{color:var(--deep-coral);}
   .nav-link:hover::after,.nav-link.active::after{transform:scaleX(1);}
   .nav-cta{background:var(--ink);color:var(--paper);font-weight:700;font-size:16px;padding:12px 24px;border-radius:999px;transition:transform .25s var(--ease),background-color .25s ease;display:inline-block;}
-  .term-tip{position:relative;border-bottom:1px dotted currentColor;cursor:help;}
-  .term-tip .term-tip-bubble{position:absolute;left:0;top:calc(100% + 10px);transform:translateY(-4px);width:210px;background:var(--ink);color:var(--paper);font-family:var(--font-sans);font-size:13px;line-height:1.5;font-weight:400;text-transform:none;letter-spacing:normal;padding:10px 12px;border-radius:8px;opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease;pointer-events:none;z-index:30;box-shadow:0 8px 20px rgba(24,27,18,0.3);text-align:left;}
-  .term-tip .term-tip-bubble::after{content:'';position:absolute;bottom:100%;left:16px;border:6px solid transparent;border-bottom-color:var(--ink);}
-  .term-tip:hover .term-tip-bubble,.term-tip:focus-visible .term-tip-bubble{opacity:1;visibility:visible;transform:translateY(0);}
   .nav-cta:hover{background:var(--deep-coral);transform:translateY(-2px);}
 
   /* ---------- hero ---------- */
@@ -170,7 +166,6 @@
 
   /* ---------- footer ---------- */
   .site-footer{background:var(--deep-sage);color:var(--paper);padding:56px 0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='14' viewBox='0 0 24 14'%3E%3Cpath d='M0 7C4 0 8 0 12 7C16 14 20 14 24 7' fill='none' stroke='%23FDFBF7' stroke-width='2' stroke-linecap='round' opacity='0.55'/%3E%3C/svg%3E");background-repeat:repeat-x;background-position:top left;background-size:24px 14px;}
-  .yarn-icon{width:34px;height:34px;flex-shrink:0;}
   .footer-row{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
   .footer-brand{font-family:var(--font-serif);font-weight:700;font-size:18px;color:var(--paper);}
   .footer-loc{font-size:16px;color:rgba(253,251,247,0.72);margin-top:4px;}
@@ -259,7 +254,7 @@
         <div class="hero-panel-inner">
           <div class="hero-panel-row">
             <div class="hero-panel-label">Founded by</div>
-            <div class="hero-panel-value">Krystyna Wesp, a mother &amp; pediatrician</div>
+            <div class="hero-panel-value">Dr. Wesp, a mother &amp; pediatrician</div>
           </div>
           <div class="hero-panel-bottom">
             <div class="hero-panel-label">Care model</div>
@@ -290,7 +285,7 @@
   <div class="wrap solution-grid reveal">
     <h2 class="solution-headline">One pediatrician. <span class="accent">One family.</span> The whole story, every time.</h2>
     <div class="solution-copy">
-      <p>Instead of billing insurance for every visit, Crafted Care families pay a simple monthly or annual membership for direct access to Krystyna Wesp &mdash; not a call center, not a rotating cast of providers.</p>
+      <p>Instead of billing insurance for every visit, Crafted Care families pay a simple monthly or annual membership for direct access to Dr. Wesp &mdash; not a call center, not a rotating cast of providers.</p>
       <p>That means visits with real time in them, a pediatrician who already knows your child's history when you call, and whole-child care that grows with your family from birth through the teenage years.</p>
     </div>
   </div>
@@ -317,12 +312,12 @@
       <div class="bcard bcard-light b2">
         <svg class="b-icon" viewBox="0 0 24 24" fill="none" stroke="var(--deep-coral)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15.05 5.5a5 5 0 0 1 4.45 4.45"></path><path d="M15.05 1.5a9 9 0 0 1 8.45 8.44"></path><path d="M20.5 17.5a2 2 0 0 1-2.18 2 18 18 0 0 1-7.85-2.79 17.5 17.5 0 0 1-5.4-5.4A18 18 0 0 1 2.28 3.4 2 2 0 0 1 4.26 1.2h3.5a2 2 0 0 1 2 1.72c.12.9.35 1.79.68 2.63a2 2 0 0 1-.45 2.11L8.6 9.05a14 14 0 0 0 5.35 5.35l1.4-1.4a2 2 0 0 1 2.11-.45c.84.33 1.72.56 2.63.68a2 2 0 0 1 1.72 2.05z"></path></svg>
         <div class="b-title">Direct access</div>
-        <div class="b-body">Reach Krystyna directly when something comes up.</div>
+        <div class="b-body">Reach Dr. Wesp directly when something comes up.</div>
       </div>
       <div class="bcard bcard-coral b3">
-        <svg class="b-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.35-9.5-8.5C.8 8 2.3 4.5 6 4c2.1-.3 3.7.9 6 3.5C14.3 4.9 15.9 3.7 18 4c3.7.5 5.2 4 3.5 7.5C19 15.65 12 20 12 20z"></path></svg>
-        <div class="b-title"><span class="term-tip" tabindex="0">OMM<span class="term-tip-bubble">Osteopathic manipulative medicine &mdash; a gentle, hands-on approach that supports your child's natural healing, offered at every well visit.</span></span></div>
-        <div class="b-body">Osteopathic manipulative medicine, offered at every well visit.</div>
+        <svg class="b-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9 12l2 2 4-4"></path></svg>
+        <div class="b-title">Same-day &amp; next-day availability</div>
+        <div class="b-body">When something comes up, you're not waiting weeks for an appointment.</div>
       </div>
       <div class="bcard bcard-light b4">
         <svg class="b-icon" viewBox="0 0 24 24" fill="none" stroke="var(--deep-coral)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg>
@@ -359,7 +354,7 @@
         <div class="how-step">
           <span class="step-num">2</span>
           <div>
-            <h3 class="step-title">Meet Krystyna</h3>
+            <h3 class="step-title">Meet Dr. Wesp</h3>
             <p class="step-body">Once the doors open, schedule a meet-and-greet to see if it's the right fit for your family.</p>
           </div>
         </div>
@@ -375,11 +370,12 @@
     <div class="pricing-signal reveal">
       <div class="pricing-signal-text">
         <h3>Membership priced by your child's age.</h3>
-        <p>Simple monthly and annual plans. No surprise bills, no insurance maze &mdash; we'll walk waitlist families through exact pricing before you ever have to decide.</p>
+        <p>Simple monthly and annual plans. No surprise bills, no insurance maze. Have more than one child? Contact the clinic to ask about family discounts.</p>
       </div>
       <div class="pricing-chip">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Monthly or annual</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Priced by age</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Birth&ndash;2 years: $200/mo</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>2&ndash;6 years: $175/mo</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>6&ndash;21 years: $150/mo</span>
       </div>
     </div>
   </div>
@@ -391,12 +387,8 @@
     <div class="founder-mark" aria-hidden="true"><span>KW</span></div>
     <div class="founder-copy">
       <p class="founder-quote">"I built the practice I wanted for my own kids &mdash; unhurried, direct, and never rushed."</p>
-      <div class="founder-byline">Krystyna Wesp</div>
-      <div class="founder-role" style="margin-bottom:20px;">Founder of Crafted Care Pediatrics &middot; mother and pediatrician</div>
-      <div style="display:flex; align-items:flex-start; gap:12px;">
-        <svg class="yarn-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="15" stroke="var(--paper)" stroke-width="1.6" opacity="0.8"/><path d="M6 15C13 19 27 19 34 15" stroke="var(--paper)" stroke-width="1.6" opacity="0.8"/><path d="M5 23C13 17 27 24 35 19" stroke="var(--paper)" stroke-width="1.6" opacity="0.8"/><path d="M9 29C15 23 25 23 31 29" stroke="var(--paper)" stroke-width="1.6" opacity="0.8"/><path d="M20 5C25 12 25 28 20 35" stroke="var(--paper)" stroke-width="1.6" opacity="0.8"/></svg>
-        <p style="font-size:16px; line-height:1.6; color:rgba(253,251,247,0.82); margin:0;">She reads to patients in clinic and hand-crochets a hat for every newborn she welcomes, because care should feel personal, not procedural.</p>
-      </div>
+      <div class="founder-byline">Dr. Wesp</div>
+      <div class="founder-role">Founder of Crafted Care Pediatrics &middot; mother and pediatrician</div>
     </div>
   </div>
 </section>

@@ -27,15 +27,13 @@
   .nav-link.active{color:var(--deep-sage);}
   .logo-mark{transition:transform .3s var(--ease);}
   .logo-lockup:hover .logo-mark{transform:rotate(-4deg) scale(1.05);}
+  .nav-cta{display:inline-flex;align-items:center;background:var(--coral);color:var(--paper);font-weight:700;font-size:15px;padding:10px 22px;border-radius:999px;transition:transform .25s var(--ease),background-color .25s ease,box-shadow .25s var(--ease);}
+  .nav-cta:hover{background:var(--deep-coral);color:var(--paper);transform:translateY(-2px);box-shadow:0 10px 20px rgba(240,135,108,0.35);}
 
   .bookmark-tag{position:relative;display:inline-flex;align-items:flex-start;justify-content:center;padding:9px 22px 16px;background:var(--sage);color:var(--paper);font-family:var(--font-sans);font-weight:600;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;clip-path:polygon(0 0,100% 0,100% 82%,50% 100%,0 82%);margin-bottom:16px;filter:drop-shadow(0 4px 8px rgba(43,47,38,0.16));}
 
   .cc-h2{font-family:var(--font-serif);font-weight:700;font-size:30px;color:var(--ink);margin:0;}
   .cc-eyebrow{font-family:var(--font-sans);font-weight:600;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--deep-sage);}
-  .term-tip{position:relative;border-bottom:1px dotted currentColor;cursor:help;}
-  .term-tip .term-tip-bubble{position:absolute;left:0;top:calc(100% + 10px);transform:translateY(-4px);width:210px;background:var(--ink);color:var(--paper);font-family:var(--font-sans);font-size:13px;line-height:1.5;font-weight:400;text-transform:none;letter-spacing:normal;padding:10px 12px;border-radius:8px;opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease;pointer-events:none;z-index:30;box-shadow:0 8px 20px rgba(43,47,38,0.25);text-align:left;}
-  .term-tip .term-tip-bubble::after{content:'';position:absolute;bottom:100%;left:16px;border:6px solid transparent;border-bottom-color:var(--ink);}
-  .term-tip:hover .term-tip-bubble,.term-tip:focus-visible .term-tip-bubble{opacity:1;visibility:visible;transform:translateY(0);}
   .cc-body{font-family:var(--font-sans);font-size:16px;line-height:1.6;color:var(--text-muted);}
 
   .cc-btn-coral{display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;border-radius:999px;background:var(--coral);color:var(--paper);font-family:var(--font-sans);font-weight:600;font-size:16px;border:none;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease);}
@@ -46,7 +44,6 @@
   .cc-card:hover{transform:translateY(-5px);box-shadow:7px 8px 0 0 var(--sage-mist),14px 16px 0 0 var(--border-hairline),0 16px 32px rgba(43,47,38,0.16);}
   .cc-card::after{content:'';position:absolute;top:0;right:0;width:0;height:0;border-style:solid;border-width:0 22px 22px 0;border-color:transparent var(--sage-mist) transparent transparent;}
   .cc-stitch{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='14' viewBox='0 0 24 14'%3E%3Cpath d='M0 7C4 0 8 0 12 7C16 14 20 14 24 7' fill='none' stroke='%23D9CDBB' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:repeat-x;background-size:24px 14px;background-position:top left;padding-top:22px;}
-  .yarn-icon{width:34px;height:34px;flex-shrink:0;}
   .cc-card-title{font-family:var(--font-serif);font-size:19px;color:var(--ink);margin:0 0 6px;}
 
   .step-num{display:inline-block;font-family:var(--font-serif);font-size:28px;color:var(--sage);margin-bottom:8px;transition:transform .3s var(--ease),color .3s ease;}
@@ -106,17 +103,16 @@
   }
   .cc-row{display:flex;gap:48px;}
 
-  /* ---------- normal-site body: list + timeline + info-panel, distinct from the card-grid layouts elsewhere ---------- */
+  /* ---------- normal-site body: cards + timeline + info-panel, distinct from C's chapter-per-section treatment ---------- */
   .info-panel{background:var(--sage-mist);border-radius:14px;padding:28px 26px;}
-
-  .benefits-list{display:grid;grid-template-columns:1fr 1fr;column-gap:56px;}
-  .benefit-row{display:flex;gap:18px;align-items:flex-start;padding:22px 0;border-top:1px solid var(--border-hairline);}
-  .benefits-list>.benefit-row:nth-child(5),
-  .benefits-list>.benefit-row:nth-child(6){border-bottom:1px solid var(--border-hairline);}
-  .benefit-num{width:38px;height:38px;flex-shrink:0;border-radius:50%;background:var(--paper);border:1.5px solid var(--sage);color:var(--deep-sage);font-family:var(--font-serif);font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;}
+  .cc-card .cc-bookmark{position:absolute;top:0;right:26px;width:20px;height:36px;background:var(--coral);clip-path:polygon(0 0,100% 0,100% 78%,50% 100%,0 78%);transform:translateY(-100%);transition:transform .4s var(--ease);z-index:2;box-shadow:0 3px 6px rgba(43,47,38,0.18);}
+  .cc-card:hover .cc-bookmark{transform:translateY(0);}
+  .benefits-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
   @media (max-width:760px){
-    .benefits-list{grid-template-columns:1fr;}
-    .benefits-list>.benefit-row{border-bottom:1px solid var(--border-hairline) !important;}
+    .benefits-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:520px){
+    .benefits-grid{grid-template-columns:1fr;}
   }
 
   .timeline-item{position:relative;padding-left:64px;padding-bottom:44px;}
@@ -139,7 +135,7 @@
       <span class="nav-link active">Home</span>
       <span class="nav-link" style="color:var(--ink);">About</span>
       <span class="nav-link" style="color:var(--ink);">Services</span>
-      <a href="#waitlist" class="nav-link" style="color:var(--ink);">Join</a>
+      <a href="#waitlist" class="nav-cta">Join the Waitlist</a>
     </div>
   </div>
 
@@ -170,37 +166,31 @@
       <div class="cc-eyebrow" style="margin-bottom:10px;">The essentials</div>
       <div class="cc-h2">What your family gets</div>
     </div>
-    <div class="benefits-list">
-      <div class="benefit-row reveal" style="--d:0ms;">
-        <div class="benefit-num">1</div>
-        <div><div class="cc-card-title">Whole-child care</div>
-        <p class="cc-body" style="margin:0;">Birth through the teenage years, with one pediatrician who knows your family.</p></div>
-      </div>
-      <div class="benefit-row reveal" style="--d:40ms;">
-        <div class="benefit-num">2</div>
-        <div><div class="cc-card-title">Unhurried visits</div>
-        <p class="cc-body" style="margin:0;">Longer appointments built for real questions, not the next patient in line.</p></div>
-      </div>
-      <div class="benefit-row reveal" style="--d:0ms;">
-        <div class="benefit-num">3</div>
-        <div><div class="cc-card-title">Direct access</div>
-        <p class="cc-body" style="margin:0;">Reach Krystyna directly when something comes up, not a call center.</p></div>
-      </div>
-      <div class="benefit-row reveal" style="--d:40ms;">
-        <div class="benefit-num">4</div>
-        <div><div class="cc-card-title"><span class="term-tip" tabindex="0">OMM<span class="term-tip-bubble">Osteopathic manipulative medicine &mdash; a gentle, hands-on approach that supports your child's natural healing, offered at every well visit.</span></span></div>
-        <p class="cc-body" style="margin:0;">Osteopathic manipulative medicine, offered at every well visit.</p></div>
-      </div>
-      <div class="benefit-row reveal" style="--d:0ms;">
-        <div class="benefit-num">5</div>
-        <div><div class="cc-card-title">Home visits</div>
-        <p class="cc-body" style="margin:0;">Birth to 2 months, at your house, not ours.</p></div>
-      </div>
-      <div class="benefit-row reveal" style="--d:40ms;">
-        <div class="benefit-num">6</div>
-        <div><div class="cc-card-title">Behavioral health</div>
-        <p class="cc-body" style="margin:0;">Support for the whole child, not just physical checkups.</p></div>
-      </div>
+    <div class="benefits-grid">
+      <div class="cc-card reveal" style="--d:0ms;"><div class="cc-bookmark"></div><div class="cc-stitch">
+        <div class="cc-card-title">Whole-child care</div>
+        <p class="cc-body">Birth through the teenage years, with one pediatrician who knows your family.</p>
+      </div></div>
+      <div class="cc-card reveal" style="--d:60ms;"><div class="cc-bookmark"></div><div class="cc-stitch">
+        <div class="cc-card-title">Unhurried visits</div>
+        <p class="cc-body">Longer appointments built for real questions, not the next patient in line.</p>
+      </div></div>
+      <div class="cc-card reveal" style="--d:120ms;"><div class="cc-bookmark"></div><div class="cc-stitch">
+        <div class="cc-card-title">Direct access</div>
+        <p class="cc-body">Reach Dr. Wesp directly when something comes up, not a call center.</p>
+      </div></div>
+      <div class="cc-card reveal" style="--d:0ms;"><div class="cc-bookmark"></div><div class="cc-stitch">
+        <div class="cc-card-title">Same-day &amp; next-day availability</div>
+        <p class="cc-body">When something comes up, you're not waiting weeks for an appointment.</p>
+      </div></div>
+      <div class="cc-card reveal" style="--d:60ms;"><div class="cc-bookmark"></div><div class="cc-stitch">
+        <div class="cc-card-title">Home visits</div>
+        <p class="cc-body">Birth to 2 months, at your house, not ours.</p>
+      </div></div>
+      <div class="cc-card reveal" style="--d:120ms;"><div class="cc-bookmark"></div><div class="cc-stitch">
+        <div class="cc-card-title">Behavioral health</div>
+        <p class="cc-body">Support for the whole child, not just physical checkups.</p>
+      </div></div>
     </div>
   </div>
 
@@ -219,7 +209,7 @@
         </div>
         <div class="timeline-item reveal" style="--d:90ms;">
           <div class="timeline-num">2</div>
-          <div class="step-title">Meet Krystyna</div>
+          <div class="step-title">Meet Dr. Wesp</div>
           <p class="cc-body" style="margin:0;">Once we open, schedule a meet and greet to see if Crafted Care is the right fit.</p>
         </div>
         <div class="timeline-item reveal" style="--d:180ms;">
@@ -237,17 +227,16 @@
       <div style="flex:1; min-width:300px;">
         <div class="cc-eyebrow" style="margin-bottom:10px;">Membership</div>
         <div class="cc-h2" style="margin-bottom:16px;">Simple membership, priced by age.</div>
-        <p class="cc-body">Monthly and annual plans, priced by your child's age. Families with more than one kid aren't stuck paying one flat rate. Exact pricing is shared with waitlist families well before you have to decide anything, and there are no surprise per-visit bills once you're a member.</p>
+        <p class="cc-body">Monthly and annual plans, priced by your child's age, so families with more than one kid aren't stuck paying one flat rate. No surprise per-visit bills once you're a member.</p>
       </div>
       <div class="info-panel" style="flex:1; min-width:280px; max-width:400px;">
-        <div class="cc-card-title" style="margin-bottom:14px;">What's included</div>
+        <div class="cc-card-title" style="margin-bottom:14px;">Membership pricing</div>
         <div style="display:flex; flex-direction:column; gap:10px;">
-          <span class="cc-body">Unhurried, direct access primary care</span>
-          <span class="cc-body"><span class="term-tip" tabindex="0">OMM<span class="term-tip-bubble">Osteopathic manipulative medicine &mdash; a gentle, hands-on approach that supports your child's natural healing, offered at every well visit.</span></span> at every well visit</span>
-          <span class="cc-body">Behavioral and whole-child support</span>
-          <span class="cc-body">Home visits, birth to 2 months</span>
-          <span class="cc-body">Age-banded monthly or annual billing</span>
+          <span class="cc-body"><strong>Birth&ndash;2 years:</strong> $200/month</span>
+          <span class="cc-body"><strong>2&ndash;6 years:</strong> $175/month</span>
+          <span class="cc-body"><strong>6&ndash;21 years:</strong> $150/month</span>
         </div>
+        <p class="cc-body" style="margin:14px 0 0;">Monthly or annual billing. Have more than one child? Contact the clinic to ask about family discounts.</p>
       </div>
     </div>
   </div>
@@ -259,13 +248,9 @@
         <div class="cc-eyebrow" style="margin-bottom:10px;">About</div>
         <div class="cc-h2" style="font-size:26px; margin-bottom:16px;">A mother and a pediatrician, building the practice she wished she had.</div>
         <blockquote style="font-family:var(--font-serif); font-style:italic; font-size:20px; line-height:1.5; color:var(--deep-sage); margin:0 0 14px;">"I'm also a mother and a patient myself, and I believe the best care comes from a real relationship, built with the time to make one."</blockquote>
-        <div style="font-family:var(--font-sans); font-weight:600; font-size:15px; color:var(--text-muted); margin-bottom:14px;">Krystyna Wesp, Founder</div>
-        <div style="display:flex; align-items:flex-start; gap:12px;">
-          <svg class="yarn-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="15" stroke="var(--sage)" stroke-width="1.6"/><path d="M6 15C13 19 27 19 34 15" stroke="var(--sage)" stroke-width="1.6"/><path d="M5 23C13 17 27 24 35 19" stroke="var(--sage)" stroke-width="1.6"/><path d="M9 29C15 23 25 23 31 29" stroke="var(--sage)" stroke-width="1.6"/><path d="M20 5C25 12 25 28 20 35" stroke="var(--sage)" stroke-width="1.6"/></svg>
-          <p class="cc-body" style="margin:0;">She reads to patients in clinic and hand-crochets a hat for every newborn she welcomes, because care should feel personal, not procedural.</p>
-        </div>
+        <div style="font-family:var(--font-sans); font-weight:600; font-size:15px; color:var(--text-muted);">Dr. Wesp, Founder</div>
       </div>
-      <div class="hero-photo" style="flex:1; min-width:280px; max-width:420px; min-height:300px;">real photograph, warm natural light, Krystyna Wesp with a family</div>
+      <div class="hero-photo" style="flex:1; min-width:280px; max-width:420px; min-height:300px;">real photograph, warm natural light, Dr. Wesp with a family</div>
     </div>
   </div>
 

@@ -79,9 +79,13 @@ a:hover{color:var(--deep-coral);}
 .timeline-num{position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--paper);border:2px solid var(--sage);color:var(--deep-sage);font-family:var(--font-serif);font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;}
 
 .term-tip{position:relative;border-bottom:1px dotted currentColor;cursor:help;}
-.term-tip .term-tip-bubble{position:absolute;left:0;top:calc(100% + 10px);transform:translateY(-4px);width:210px;background:var(--ink);color:var(--paper);font-family:var(--font-sans);font-size:13px;line-height:1.5;font-weight:400;text-transform:none;letter-spacing:normal;padding:10px 12px;border-radius:8px;opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease;pointer-events:none;z-index:30;box-shadow:0 8px 20px rgba(43,47,38,0.25);text-align:left;}
-.term-tip .term-tip-bubble::after{content:'';position:absolute;bottom:100%;left:16px;border:6px solid transparent;border-bottom-color:var(--ink);}
-.term-tip:hover .term-tip-bubble,.term-tip:focus-visible .term-tip-bubble{opacity:1;visibility:visible;transform:translateY(0);}
+.term-tip .term-tip-bubble{position:absolute;left:50%;top:calc(100% + 10px);transform:translateX(-50%) translateY(-4px);width:240px;max-width:calc(100vw - 32px);background:var(--ink);color:var(--paper);font-family:var(--font-sans);font-size:13px;line-height:1.5;font-weight:400;text-transform:none;letter-spacing:normal;padding:10px 12px;border-radius:8px;opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease;pointer-events:none;z-index:30;box-shadow:0 8px 20px rgba(43,47,38,0.25);text-align:left;}
+.term-tip .term-tip-bubble::after{content:'';position:absolute;bottom:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-bottom-color:var(--ink);}
+.term-tip:hover .term-tip-bubble,
+.term-tip:focus-visible .term-tip-bubble,
+.term-tip:focus-within .term-tip-bubble{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);pointer-events:auto;}
+.term-tip-bubble a{display:block;margin-top:6px;color:var(--sage);font-weight:600;}
+.term-tip-bubble a:hover{color:var(--coral);}
 
 .waitlist-form{display:flex;flex-direction:column;gap:12px;}
 .waitlist-form[hidden]{display:none;}

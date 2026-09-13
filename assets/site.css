@@ -178,5 +178,5 @@ a:hover{color:var(--deep-coral);}
 
 /* ---------- CTA texture band ---------- */
 .cta-band{position:relative;isolation:isolate;overflow:hidden;}
-.cta-band::before{content:'';position:absolute;inset:0;z-index:-1;background-image:url("photo-cta-band.webp");background-size:cover;background-position:center;opacity:.17;}
+.cta-band::before{content:'';position:absolute;inset:0;z-index:-1;background-image:url("https://images.unsplash.com/photo-1633175118641-6001540f5dc7?w=1600&h=520&fit=crop&q=58&fm=webp");background-size:cover;background-position:center;opacity:.20;}
 .cta-band::after{content:'';position:absolute;inset:0;z-index:-1;background:var(--paper);opacity:.35;}

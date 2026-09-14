@@ -137,6 +137,16 @@ a:hover{color:var(--deep-coral);}
 .page-hero .cc-h1{font-size:clamp(32px,4vw,44px);margin-bottom:16px;}
 .page-hero .cc-body{font-size:17px;max-width:56ch;margin:0 auto;}
 
+/* ---------- local (North Fort Worth) photo texture ---------- */
+.local-texture{position:relative;isolation:isolate;overflow:hidden;}
+.local-texture::before{content:'';position:absolute;inset:0;z-index:-1;background-image:var(--local-photo);background-size:cover;background-position:center;opacity:.28;}
+.local-texture::after{content:'';position:absolute;inset:0;z-index:-1;background:var(--cream);opacity:.5;}
+
+.local-banner{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/7;}
+@media (max-width:640px){
+  .local-banner{aspect-ratio:auto;height:260px;}
+}
+
 /* ---------- FAQ accordion ---------- */
 .faq-item{border-top:2px dashed var(--border-hairline);}
 .faq-item:last-child{border-bottom:2px dashed var(--border-hairline);}
@@ -183,5 +193,5 @@ a:hover{color:var(--deep-coral);}
 
 /* ---------- yarn section break ---------- */
 .yarn-break{position:relative;height:68px;background:var(--paper);overflow:hidden;}
-.yarn-break::before{content:'';position:absolute;left:0;right:0;top:50%;height:28px;transform:translateY(-50%);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='28' viewBox='0 0 48 28'%3E%3Cpath d='M0 14C8 0 16 0 24 14C32 28 40 28 48 14' fill='none' stroke='%239CAF88' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:repeat-x;background-position:center;background-size:48px 28px;opacity:.6;}
+.yarn-break::before{content:'';position:absolute;left:0;right:0;top:50%;height:36px;transform:translateY(-50%);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='60' viewBox='0 0 900 60'%3E%3Cpath d='M0,20 C25,5 35,50 65,35 C90,23 100,10 120,22 C132,29 122,44 108,40 C96,37 100,24 112,24 C122,24 130,30 130,30 C145,32 165,8 195,18 C225,28 235,50 265,40 C288,32 300,15 325,20 C350,25 355,45 380,38 C400,32 405,12 425,15 C438,17 445,10 452,14 C462,20 455,32 445,30 C438,28 438,20 448,18 C460,16 470,20 480,22 C505,26 520,50 550,38 C575,28 585,10 610,18 C635,26 645,48 675,36 C700,26 710,8 735,18 C755,26 765,44 790,34 C812,26 820,10 845,20 C862,27 875,15 900,24' fill='none' stroke='%239CAF88' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:repeat-x;background-position:center;background-size:auto 36px;opacity:.62;}
 .yarn-break::after{content:'';position:absolute;left:50%;top:50%;width:11px;height:11px;transform:translate(-50%,-50%);background:var(--coral);border-radius:50%;box-shadow:0 0 0 6px var(--paper);}

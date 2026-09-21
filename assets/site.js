@@ -49,6 +49,16 @@
     });
   }
 
+  var returningForm = document.getElementById('returningForm');
+  var returningSuccess = document.getElementById('returningSuccess');
+  if (returningForm){
+    returningForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      returningForm.hidden = true;
+      returningSuccess.hidden = false;
+    });
+  }
+
   document.querySelectorAll('.faq-item').forEach(function(item){
     var row = item.querySelector('.faq-q-row');
     if (!row) return;

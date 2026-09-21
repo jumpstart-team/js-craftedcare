@@ -31,12 +31,12 @@
   <div class="cc-row reveal" style="max-width:1100px; margin:0 auto; flex-wrap:wrap; align-items:center; justify-content:center; gap:56px;">
     <div style="flex:1; min-width:300px; max-width:440px;">
       <div class="bookmark-tag">Chapter Six</div>
-      <div class="cc-h1" style="font-size:36px; margin-bottom:16px;">Your child or children's first chapter starts here.</div>
+      <div class="cc-h1" style="font-size:36px; margin-bottom:16px;">Your child's first chapter starts here.</div>
       <p class="hero-lead" style="margin-bottom:24px;">Crafted Care opens in December 2026 in North Fort Worth, TX. Join the waitlist today to be among the first families welcomed.</p>
       <p class="cc-body" style="margin-bottom:24px;">No cost to join. Pricing is shared well before you have to decide anything.</p>
       <div style="display:flex; flex-direction:column; gap:4px; font-size:16px; color:var(--text-muted);">
         <span>Crafted Care Pediatrics, North Fort Worth, TX</span>
-        <span><a href="mailto:kwesp@craftedcarepeds.com">kwesp@craftedcarepeds.com</a></span>
+        <span><a href="mailto:info@craftedcarepeds.com">info@craftedcarepeds.com</a></span>
         <span><a href="tel:+18178426027">(817) 842-6027</a></span>
       </div>
     </div>
@@ -47,13 +47,46 @@
         <input id="wl-name" name="parentName" type="text" placeholder="Parent name" required autocomplete="name">
         <label for="wl-email">Email address</label>
         <input id="wl-email" name="email" type="email" placeholder="Email address" required autocomplete="email">
-        <label for="wl-age">Child or children's age(s) (or due date)</label>
-        <input id="wl-age" name="childAge" type="text" placeholder="Child or children's age(s) (or due date)" required>
+        <label for="wl-age">Child's age (or due date)</label>
+        <input id="wl-age" name="childAge" type="text" placeholder="Child's age (or due date)" required>
         <button class="cc-btn-coral" type="submit" style="margin-top:4px;">Join the Waitlist</button>
       </form>
       <div id="waitlistSuccess" hidden>
         <div class="cc-card-title" style="margin-bottom:8px;">You're on the list.</div>
         <p class="cc-body">Thank you. We'll be in touch as we get closer to opening in December 2026.</p>
+      </div>
+      <div style="margin-top:16px;">
+        <a href="#returning" style="font-weight:600;">Returning or former patient? &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="yarn-break" aria-hidden="true"></div>
+
+<div id="returning" style="background:var(--sage-mist); padding:88px 56px; scroll-margin-top:88px;">
+  <div class="cc-row reveal" style="max-width:1100px; margin:0 auto; flex-wrap:wrap; align-items:center; justify-content:center; gap:56px;">
+    <div style="flex:1; min-width:300px; max-width:440px;">
+      <div class="cc-eyebrow" style="margin-bottom:10px;">Welcome back</div>
+      <div class="cc-h2" style="margin-bottom:16px;">Returning or former patient?</div>
+      <p class="cc-body">Let us know you were part of the practice before. Returning families get their own spot on the list, and may qualify for a returning-patient discount.</p>
+    </div>
+    <div class="cc-card" style="flex:1; min-width:300px; max-width:420px;">
+      <div class="cc-card-title" style="margin-bottom:14px;">Returning patient waitlist</div>
+      <form class="waitlist-form" id="returningForm">
+        <label for="rt-name">Parent name</label>
+        <input id="rt-name" name="parentName" type="text" placeholder="Parent name" required autocomplete="name">
+        <label for="rt-email">Email address</label>
+        <input id="rt-email" name="email" type="email" placeholder="Email address" required autocomplete="email">
+        <label for="rt-length">How long were you a patient?</label>
+        <input id="rt-length" name="patientLength" type="text" placeholder="e.g. 3 years" required>
+        <label for="rt-children">Number of children</label>
+        <input id="rt-children" name="numChildren" type="text" placeholder="Number of children" required>
+        <button class="cc-btn-coral" type="submit" style="margin-top:4px;">Join the Waitlist</button>
+      </form>
+      <div id="returningSuccess" hidden>
+        <div class="cc-card-title" style="margin-bottom:8px;">You're on the list.</div>
+        <p class="cc-body">Welcome back. We'll be in touch as we get closer to opening in December 2026.</p>
       </div>
     </div>
   </div>
@@ -64,7 +97,7 @@
     <div>
       <div class="site-footer-brand">Crafted Care Pediatrics</div>
       <div class="cc-body" style="color:rgba(253,251,247,0.7);">North Fort Worth, TX</div>
-      <div class="cc-body" style="color:rgba(253,251,247,0.7);"><a href="mailto:kwesp@craftedcarepeds.com">kwesp@craftedcarepeds.com</a></div>
+      <div class="cc-body" style="color:rgba(253,251,247,0.7);"><a href="mailto:info@craftedcarepeds.com">info@craftedcarepeds.com</a></div>
       <div class="cc-body" style="color:rgba(253,251,247,0.7);"><a href="tel:+18178426027">(817) 842-6027</a></div>
     </div>
     <div class="site-footer-links">

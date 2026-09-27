@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <title>Purl, the Crafted Care ball of yarn</title>
+  <defs><clipPath id="purl-body"><circle cx="58" cy="62" r="38"/></clipPath></defs>
+  <ellipse cx="58" cy="106" rx="30" ry="4.5" fill="#2B2F26" opacity=".08"/>
+  <g stroke-linecap="round">
+    <line x1="48" y1="70" x2="88" y2="6" stroke="#9CAF88" stroke-width="4.6"/>
+    <line x1="72" y1="70" x2="106" y2="20" stroke="#9CAF88" stroke-width="4.6"/>
+  </g>
+  <circle cx="88" cy="6" r="4.4" fill="#506244"/>
+  <circle cx="106" cy="20" r="4.4" fill="#506244"/>
+  <path d="M26,86 C12,94 8,106 18,110 C26,113 30,104 22,102 C17,101 14,105 16,108" fill="none" stroke="#F0876C" stroke-width="3.2" stroke-linecap="round"/>
+  <circle cx="58" cy="62" r="38" fill="#F0876C"/>
+  <g clip-path="url(#purl-body)" fill="none" stroke="#A8452F" stroke-width="2.2" stroke-linecap="round" opacity=".4">
+    <path d="M14,42 C40,24 52,92 102,60"/>
+    <path d="M16,84 C44,98 52,22 100,36"/>
+    <path d="M28,22 C52,58 70,32 92,96"/>
+  </g>
+  <circle cx="58" cy="62" r="38" fill="none" stroke="#A8452F" stroke-width="1.6" opacity=".22"/>
+  <g fill="#FDFBF7" opacity=".92">
+    <ellipse cx="46" cy="60" rx="9.5" ry="10.5"/>
+    <ellipse cx="70" cy="60" rx="9.5" ry="10.5"/>
+  </g>
+  <circle cx="47" cy="62" r="4.6" fill="#2B2F26"/>
+  <circle cx="71" cy="62" r="4.6" fill="#2B2F26"/>
+  <circle cx="48.6" cy="60.2" r="1.6" fill="#FDFBF7"/>
+  <circle cx="72.6" cy="60.2" r="1.6" fill="#FDFBF7"/>
+  <ellipse cx="37" cy="74" rx="5.5" ry="3.4" fill="#A8452F" opacity=".32"/>
+  <ellipse cx="80" cy="74" rx="5.5" ry="3.4" fill="#A8452F" opacity=".32"/>
+  <path d="M51,76 C55,81 62,81 66,76" fill="none" stroke="#2B2F26" stroke-width="2.6" stroke-linecap="round"/>
+</svg>

@@ -60,6 +60,33 @@ a:hover{color:var(--deep-coral);}
 
 .info-panel{background:var(--sage-mist);border-radius:14px;padding:28px 26px;}
 
+.cc-icon{width:56px;height:56px;border-radius:50%;background:var(--sage-mist);display:flex;align-items:center;justify-content:center;margin:0 0 14px;transition:transform .35s var(--ease);}
+.cc-icon svg{width:30px;height:30px;fill:none;stroke:var(--deep-sage);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.cc-icon .accent{stroke:var(--coral);}
+.cc-icon .accent-fill{fill:var(--coral);stroke:none;}
+.cc-card:hover .cc-icon{transform:rotate(-6deg) scale(1.06);}
+
+/* ---------- Purl the mascot ---------- */
+.purl{display:block;height:auto;}
+@media (prefers-reduced-motion:no-preference){
+  .purl--bob{animation:purlBob 4.5s ease-in-out infinite;transform-origin:50% 90%;}
+}
+@keyframes purlBob{0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(-6px) rotate(-3deg);}}
+.purl-note{display:flex;align-items:center;gap:28px;background:var(--paper);border:1px solid var(--border-hairline);border-radius:18px;padding:28px 32px;box-shadow:0 4px 18px rgba(43,47,38,0.08);}
+@media (max-width:640px){.purl-note{flex-direction:column;text-align:center;padding:24px;}}
+
+/* ---------- testimonials ---------- */
+.quote-card{background:var(--paper);border:1.5px dashed var(--border-hairline);border-radius:14px;padding:28px 26px;position:relative;}
+.quote-card::before{content:'\201C';position:absolute;top:-6px;left:20px;font-family:var(--font-serif);font-size:72px;line-height:1;color:var(--coral);opacity:.55;}
+.quote-card blockquote{font-family:var(--font-serif);font-style:italic;font-size:18px;line-height:1.55;color:var(--ink);margin:18px 0 14px;}
+.quote-card .quote-by{font-family:var(--font-sans);font-weight:600;font-size:16px;color:var(--text-muted);}
+
+/* ---------- link-out cards (Services hub) ---------- */
+.path-card{display:flex;flex-direction:column;height:100%;color:inherit;}
+.path-card:hover{color:inherit;}
+.path-card .path-more{margin-top:auto;padding-top:14px;font-weight:600;color:var(--deep-sage);}
+.path-card:hover .path-more{color:var(--deep-coral);}
+
 .cc-row{display:flex;gap:48px;}
 @media (max-width:900px){
   .cc-row{flex-direction:column;}
